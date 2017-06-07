@@ -34,10 +34,14 @@ class User extends CI_Controller{//controller class is in system/core/controller
 	
 	public function getData(){
 		$this->load->model("mydata");
-	$data['data2']=$this->mydata->getIt();
+		$result['data2']=$this->mydata->pageLoad();
 		//var_dump($data2->result()); //resource dekhauney
 		
-		$this->load->view("mypage",$data);
+		$this->load->view("mypage",$result);
+	}
+	
+	public function practice(){
+		$this->load->view("practice.php");
 	}
 	
 	public function updateData(){

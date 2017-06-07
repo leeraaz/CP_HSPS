@@ -2,7 +2,8 @@
 <html>
 <head> 
 <title>Registration Form</title>
-<link href="<?php echo base_url();?>assets/CSS/design.css" rel="stylesheet">
+	<link href="<?php echo base_url();?>assets/CSS/design.css" rel="stylesheet">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <script type="text/javascript">
 	function val(){
@@ -31,23 +32,28 @@
 	}
 </script>
 <body>
-	<div class="logo">
-		<img src="dogPic/logo.jpg" width="150" height="150">
-	</div>
-	<font color="white">
-		<div class="add2" align="center">
-			<b><font size="20">Hardware Sales and Purchase System</font></b><br/>
-			Teku, Kathmandu</br>
-			Contact No. : +9771354685, +97765464564</br>
-			PO Box No : 54535</br>
-			<u>hardwareS&P@gmail.com</u></br></br>
+		<div class="up">
+		<div class="logo">
+			<img src="http://localhost/CI/assets/Images/login.jpg" width="30%" height="20%"/>
 		</div>
-		<a href="<?php echo base_url();?>owner/mypage1">Go to home Page</a>
-	</font>
-	<form name="form" action="registerForm.php" method="POST">
-	<div class="registerForm">
-	<h1 align="center">Register Form</h1>
+		<div class="heading">
+			<font color="pink">
+				<h1><b>Hardware Sales and Purchases Shop<b/></h1>
+			</font>
+		</div>
 	
+		<div class="navigation">
+			<a href="index.html"> HOME </a></li>
+			<a href="index.html"> PIPE & FITTINGS</a>
+			<a href="gallery.html"> GALLERY </a>
+			<a href="services.php"> SERVICES </a>	
+		</div>
+	</div>
+	<br/><br/><br/><br/><br/><br/><br/><br/>
+	<hr/>
+	<font color="white" size="5px">
+	<div class="registrationForm">
+	<font size="6px">Register Form</font>
 	<table>
 		<tr>
 			<td>First Name: </td>
@@ -89,13 +95,13 @@
 			<td> Re-enter Password: </td>
 			<td> <input type="password" name="rPassword" required="required"> </td>
 			</tr>
-		<tr>
-			<td> <input type="submit" name="submit" onClick="return val();" value="Signup"> </td>
-			<td> <a href="loginForm.php"> Login </a>
+		<tr align="center">
+			<td > <input type="submit" name="submit" onClick="return val();" value="Register"> </td>
 		</tr>
 	</table>
-</div>
-</form>
+	</div>
+	</font>
+
 <?php
 	if(isset($_POST['submit'])){
 			

@@ -11,17 +11,18 @@
 				"password"=>$password,
 			);
 			
-			return $this->db->insert("user",$data);
+			return $this->db->insert("test",$data);
 		}
 		
 		public function getIt(){
-			$this->db->where("username","Liraj");
-			return $this->db->get("user");
+		 $sql = $this->db->query('select * from test;');
+		 $result =$sql->result_array();
+		 return $result;
 		}
 		
 		public function updateIt(){
 			$data=array(
-				"username"=>"Keshav"
+				"username"=>"Keshav" 
 			);
 			$this->db->where("id",11);
 			$this->db->update("user",$data);

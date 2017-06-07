@@ -30,10 +30,12 @@ if(isset($msg)) echo $msg;
 </tr>
 <?PHP
  //var_dump($data2->result());
- if(isset($data2)){
- foreach($data2->result() as $userData){
-	echo '<tr><td>'.$userData->username.'</td><td>'
-					.$userData->password.'</td></tr>';
+ if(isset($data)){
+ foreach($data->result() as $userData){
+	echo '<tr>
+			<td>'.$userData['username.'].'</td>
+			<td>'.$userData['password'].'</td>
+			</tr>';
  }
  }
 ?>
