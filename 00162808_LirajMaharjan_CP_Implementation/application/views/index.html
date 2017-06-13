@@ -8,7 +8,7 @@
 <body>
 	<div class="up">
 		<div class="logo">
-			<img src="http://localhost/CI/assets/Images/logo.png" width="40%" height="30%"/>
+			<img src="http://localhost/CI/assets/Images/logo.png" width="60%" height="30%"/>
 		</div>
 		<div class="heading">
 			<font color="pink">
@@ -16,11 +16,13 @@
 			</font>
 		</div>
 	
-		<div class="navigation">
-			<a href="index.html"> HOME </a></li>
-			<a href="index.html"> PIPE & FITTINGS</a>
-			<a href="<?php echo base_url();?>owner/gallery"> GALLERY </a>
-			<a href="services.php"> SERVICES </a>	
+		<div id="menu">
+			<ul>
+				<li><a href="index.html"> HOME </a></li>
+				<li><a href="index.html"> PIPE & FITTINGS</a></li>
+				<li><a href="<?php echo base_url();?>owner/gallery"> GALLERY </a></li>	
+				<li><a href="services.php"> SERVICES </a></li>
+			</ul>
 		</div>
 	</div>
 	<br/><br/><br/><br/><br/><br/><br/><br/>
@@ -38,41 +40,57 @@
 			</font>
 		</div>
 		<div class="loginForm">
-			<font size="5px" color="white" align="center">
-			<font size="6px"><b>Login Form </b></font><br/>
-			<label>Username:</label>
-			<input type="text" name="Username" required="required" />
-			<br/>
-			<label>Password:</label>
-			<input type="password" name="Password" required="required" />	
-			<br/>
-			<input type="submit" name="submit" onClick="return val();" value="Login" />
-			<br/>	
-			<font size="5px" color="white" align="left">
-				If you are new then, first get registered. <br>
-				<a href="<?php echo base_url();?>owner/registrationPage	"> Here </a>
-			</font>
+			<form action="<?php echo base_url();?>Staff/stfLogin" method="POST">
+				<font size="5px" color="white" align="center">
+				<font size="6px"><b>Login Form </b></font><br/>
+				<label>Username:</label>
+				<input type="text" name="suser" required="required" />
+				<br/>
+				<label>Password:</label>
+				<input type="password" name="spwd" required="required" />	
+				<br/>
+				<input type="submit" name="submit" onClick="return val();" value="Login" />
+				<br/>	
+				<font size="5px" color="white" align="left">
+					If you are new then, first get registered. <br>
+					<a href="<?php echo base_url();?>owner/registrationPage	"> Here </a>
+					<?php echo $this->session->flashdata('error'); ?>
+				</font>
+			</form>
 		</div>
 		<div class="items">
 		<h4> Pipe and fittings </h4>
 			<div class="item1">
 				<img src="<?php echo base_url(); ?>assets/Images/elbow.jpg" width="100%" height="30%" />
 				<p>
-				this is nepal. world wide web is a coputer based network of information resourxces that
-				combinew text and multimedia
+				Elbow is basically used for 90° bend. It joins pipes making an 'L' shape. If the pipes is vertical and we 
+				want to make it horizontal then we use elbow to bend it and vice versa.
 				</P>
 			</div>
 			<div class="item2">
 				<img src="<?php echo base_url(); ?>assets/Images/socket.jpg" width="100%" height="30%" />
 				<p>
-				ashdpfaishdfpas dfihapsdfalsdkfhaoisdhfalsidfhaiodhals asdhfasdf asfadfnas fadlasdhfladskflk
+				Tee is used to join three pipes at the same point. It acts like a junction for the pipe which helps water to 
+				redirect them to left and right. It is also used in taps for supply of hot and cold water.
 				</P>
 			</div>
 			<div class="item3">
 				<img src="<?php echo base_url(); ?>assets/Images/tee.jpg" width="100%" height="30%" />
+				<P>
+				Socket is used to join two pipes. It acts like an extender which connect two different pipes and matain 
+				flow of water in the same direction.
+				</p>
 			</div>
 			<div class="item4">
 				<img src="<?php echo base_url(); ?>assets/Images/union.jpg" width="100%" height="30%" />
+				<P>
+				Union is as much as Socket but it is used after the completion of project where pipe is need to be cut
+				for some repair and joins them back after completing repair.
+				</p>
+			</div>
+			<div class="info">
+				For more information please visit following link.
+				<a href="Owner/pipe&fittings" style="text-decoration:none; color:white; background:black">Here</a>
 			</div>
 		</div>
 	</div>

@@ -5,6 +5,10 @@ class User extends CI_Controller{//controller class is in system/core/controller
 		echo "Hello Nepal, a beautiful Nepal";
 	}
 	
+	public function hell(){
+		$this->load->view("hell.html");
+	}
+	
 	public function mypage(){
 		$this->load->view("mypage");//load refers to view
 	}
@@ -23,18 +27,18 @@ class User extends CI_Controller{//controller class is in system/core/controller
 	//	echo $this->input->POST("uname"); //passing username //input refers to data input
 		
 		if($saveStatus==1){
-		$data['msg']='<div id="success">Value inserted successfully</div>';
+		$data['msg']='Value inserted successfully';
 		$this->load->view("mypage",$data);
 		}
 		else{
-		$data['msg2']='<div id="fail">Try again</div>';
+		$data['msg2']='Try again';
 		$this->load->view("mypage",$data);
 		}
 	}
 	
 	public function getData(){
 		$this->load->model("mydata");
-		$result['data2']=$this->mydata->pageLoad();
+		$result['data2']=$this->mydata->getIt();
 		//var_dump($data2->result()); //resource dekhauney
 		
 		$this->load->view("mypage",$result);

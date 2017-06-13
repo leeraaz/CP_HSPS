@@ -15,9 +15,8 @@
 		}
 		
 		public function getIt(){
-		 $sql = $this->db->query('select * from test;');
-		 $result =$sql->result_array();
-		 return $result;
+		 $query = $this->db->get('test');
+		 return $query;
 		}
 		
 		public function updateIt(){

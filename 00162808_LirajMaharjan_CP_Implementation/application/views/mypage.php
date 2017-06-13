@@ -25,18 +25,16 @@ if(isset($msg)) echo $msg;
 </form></br>
 <table border="2" align="center">
 <tr>
-	<td>Username</td>
-	<td>Password</td>
+	<td>Staff type id</td>
+	<td>Staff type</td>
 </tr>
 <?PHP
  //var_dump($data2->result());
- if(isset($data)){
- foreach($data->result() as $userData){
-	echo '<tr>
-			<td>'.$userData['username.'].'</td>
-			<td>'.$userData['password'].'</td>
-			</tr>';
- }
+ if(isset($result)){
+foreach ($query->result() as $row)
+			{
+				echo $row->title;
+			}
  }
 ?>
 

@@ -4,8 +4,8 @@ class Owner extends CI_Controller{
 		$this->load->view("index.html");//load refers to view
 	}
 	
-	public function registrationPage(){
-		$this->load->view("registration.php");//load refers to view
+	public function cusRegistration(){
+		$this->load->view("customerRegistration.php");//load refers to view
 	}
 	
 	public function customerPage(){
@@ -15,5 +15,31 @@ class Owner extends CI_Controller{
 	public function gallery(){
 		$this->load->view("gallery.php");
 	}
+	
+	public function staffRegister(){
+		$this->load->view("staffRegistration.php");
+	}
+	
+	public function cusLogin(){
+		$this->load->view("customerLogin.php");
+	}
+	
+	public function ownerPanel(){
+		$this->load->view("ownerPanel.php");
+	}
+	
+	public function supplier(){
+		$this->load->view("supplierForm.php");
+	}
+	
+	public function staffPanel(){
+		$this->load->view("staffPanel.php");
+	}
+	
+	public function customerPanel(){
+		$this->load->view("customerPanel");
+	}
+	
+	
 }
 ?>
