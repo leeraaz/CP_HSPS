@@ -7,6 +7,7 @@ class User extends CI_Controller{//controller class is in system/core/controller
 	
 	public function hell(){
 		$this->load->view("hell.html");
+
 	}
 	
 	public function mypage(){
@@ -37,11 +38,16 @@ class User extends CI_Controller{//controller class is in system/core/controller
 	}
 	
 	public function getData(){
-		$this->load->model("mydata");
-		$result['data2']=$this->mydata->getIt();
-		//var_dump($data2->result()); //resource dekhauney
+		$this->load->model('mydata','custom');
 		
-		$this->load->view("mypage",$result);
+	}
+	
+	public function index(){
+		$result = $this->custom->testin();
+		if(!empty($result)){
+			$data['customers'] = result;
+			$this->load->view('mypage');
+		}
 	}
 	
 	public function practice(){

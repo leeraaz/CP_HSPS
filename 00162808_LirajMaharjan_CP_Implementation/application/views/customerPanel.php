@@ -16,6 +16,7 @@
 		<li> View items </li></a>
 		<li> Place Order </li>
 		<li> Prepare bill </li>
+		<li> Update profile </li>
 	</ul>
 </div>
 <div id="data">

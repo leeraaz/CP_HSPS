@@ -4,6 +4,66 @@
 	<title>Hardware Sales and Purchases Shop</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link href="<?php echo base_url();?>assets/CSS/design.css" rel="stylesheet">
+	<style>
+ul {
+    list-style-type: none;
+    margin-top: 0;
+    padding: 0;
+    overflow: hidden;
+	width:60%;
+}
+
+li {
+    float: left;
+	border:2px solid white;
+	height:35px;
+	line-height:10px;
+	background:black;
+	color:white;
+	margin:3px;
+	margin-top:8%;
+}
+
+li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: red;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+</style>
+</head>
 <script type="text/javascript">
 	var image1=new Image()
 	image1.src="<?php echo base_url();?>assets/Images/45bend.jpg"
@@ -31,22 +91,29 @@
 </head>
 <body>
 	<div class="up">
-		<div class="logo">
-			<img src="http://localhost/CI/assets/Images/logo.png" width="40%" height="30%"/>
-		</div>
-		<div class="heading">
-			<font color="pink">
-				<h1><b>Hardware Sales and Purchases Shop<b/></h1>
-			</font>
-		</div>
-	
-		<div class="navigation">
-			<a href="<?php echo base_url();?>owner/homePage"> HOME </a></li>
-			<a href="index.html"> PIPE & FITTINGS</a>
-			<a href="gallery.html"> GALLERY </a>
-			<a href="services.php"> SERVICES </a>	
-		</div>
+	<div class="logo">
+		<img src="http://localhost/CI/assets/Images/logo.png" width="60%" height="30%"/>
 	</div>
+	<div class="heading">
+		<font color="pink">
+			<h1><b>Hardware Sales and Purchases Shop<b/></h1>
+		</font>
+	</div>
+	<div id="menu">
+		<ul>
+			<li><a href="index.html"> HOME </a></li>
+			<li><a href="index.html"> PIPE & FITTINGS</a></li>
+			<li><a href="<?php echo base_url();?>owner/gallery"> GALLERY </a></li>	
+			<li class="dropdown">
+			<a href="javascript:void(0)" class="dropbtn">Online Services</a>
+			<div class="dropdown-content">
+			  <a href="#">Customer Login</a>
+			  <a href="#">Customer Registration</a>
+			</div>
+		  </li>
+		</ul>
+	</div>
+</div>
 	<br/><br/><br/><br/><br/><br/><br/><br/>
 	<hr/>
 	<div class="imagePage">
@@ -72,7 +139,7 @@
 	
 		<div class="loginForm2">
 			<font size="5px" color="white" align="center">
-			<font size="6px"><b>Login Form </b></font><br/>
+			<font size="6px"><b>Owner and Staff only</b></font><br/>
 			<label>Username:</label>
 			<input type="text" name="Username" required="required" />
 			<br/>

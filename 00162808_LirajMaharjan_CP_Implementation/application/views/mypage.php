@@ -30,11 +30,16 @@ if(isset($msg)) echo $msg;
 </tr>
 <?PHP
  //var_dump($data2->result());
- if(isset($result)){
-foreach ($query->result() as $row)
-			{
-				echo $row->title;
-			}
+ if($customers)){
+	 
+	 foreach ($customers as $row)
+{
+        echo "<tr><td>".$row->styfftypeid."
+			</td><td>".$row->stafftype."</td></tr>";
+}
+			
+ }
+			
  }
 ?>
 

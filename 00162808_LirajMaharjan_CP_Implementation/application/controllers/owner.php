@@ -37,9 +37,11 @@ class Owner extends CI_Controller{
 	}
 	
 	public function customerPanel(){
-		$this->load->view("customerPanel");
+		$this->load->view("customerPanel.php");
 	}
 	
-	
+	public function pipefitting(){
+		$this->load->view("pipe&fittings.php");
+	}
 }
 ?>

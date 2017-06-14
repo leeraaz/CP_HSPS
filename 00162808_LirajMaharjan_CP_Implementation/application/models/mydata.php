@@ -31,5 +31,10 @@
 			$this->db->where("id",4); //where condition "id" column and 4 is value
 			$this->db->delete("user");
 		}
+		
+		public function testin(){
+			$sql=$this->db->get('staff_type');
+			return $result = $query->result();
+		}
 	}
 ?>

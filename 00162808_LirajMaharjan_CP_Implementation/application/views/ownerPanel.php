@@ -12,13 +12,13 @@
 </div>
 <div id="sidebar">
 	<ul>
-		<li> <a href="" >Add Customer and Supplier </a></li>
+		<li> <a href="" >Add Supplier </a></li>
 		<li> <a href="" >Add Pipe and Fittings </a></li>
 		<li> <a href="" >Add Staff</a></li>
-		<li> <a href="" >Update Customer and Supplier </a></li>
+		<li> <a href="" >Update Supplier </a></li>
 		<li> <a href="" >Update Pipe and Fittings </a></li>
 		<li> <a href="" >Update Staff</a></li>
-		<li> <a href="" >Delete Customer and Supplier </a></li>
+		<li> <a href="" >Delete Supplier </a></li>
 		<li> <a href="" >Delete Pipe and Fittings </a></li>
 		<li> <a href="" >Delete Staff</a></li>
 	</ul>
