@@ -34,7 +34,7 @@
 		
 		public function testin(){
 			$sql=$this->db->get('staff_type');
-			return $result = $query->result();
+			return $sql->result();
 		}
 	}
 ?>

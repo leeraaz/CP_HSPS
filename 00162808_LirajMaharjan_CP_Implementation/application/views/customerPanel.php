@@ -11,12 +11,13 @@
 	</center>
 </div>
 <div id="sidebar">
-	<ul>
+	<ul><li>
 		<a href="" target="_blank" style="color:white; text-decoration:none;">
-		<li> View items </li></a>
+		 View items</a> </li>
 		<li> Place Order </li>
 		<li> Prepare bill </li>
 		<li> Update profile </li>
+		<li><a href="<?php echo base_url();?> Customer/cusLogout"> Logout </a></li>
 	</ul>
 </div>
 <div id="data">

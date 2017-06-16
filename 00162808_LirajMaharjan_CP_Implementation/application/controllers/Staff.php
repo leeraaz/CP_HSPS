@@ -40,15 +40,20 @@ class Staff extends CI_Controller{
 				}
 				else{
 					redirect(base_url(). 'owner/staffPanel');
-					//echo "you are a staff";
 				}
-				// 	echo "login";
+				
 			}
 			else{
-				//redirect(base_url().'owner/homepage');
 				echo "not login";
 			}
 		}
+		
+			
+		public function getCustomer(){
+		$this->load->model('OwnerModel');
+		$data['customers'] = $this->OwnerModel->customerList();
+		$this->load->view('updateSupplier',$data);
+	}
 
 		
 		function enter(){

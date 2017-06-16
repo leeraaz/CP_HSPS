@@ -15,7 +15,7 @@
 		<li> <a href="" >Add Supplier </a></li>
 		<li> <a href="" >Add Pipe and Fittings </a></li>
 		<li> <a href="" >Add Staff</a></li>
-		<li> <a href="" >Update Supplier </a></li>
+		<li> <a href="<?php echo base_url();?>Staff/getCustomer" >Update Supplier </a></li>
 		<li> <a href="" >Update Pipe and Fittings </a></li>
 		<li> <a href="" >Update Staff</a></li>
 		<li> <a href="" >Delete Supplier </a></li>
@@ -24,7 +24,7 @@
 	</ul>
 </div>
 <div id="data">
-<h3>hello everyone</h3>
+
 
 </div>
 </body>

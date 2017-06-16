@@ -38,16 +38,9 @@ class User extends CI_Controller{//controller class is in system/core/controller
 	}
 	
 	public function getData(){
-		$this->load->model('mydata','custom');
-		
-	}
-	
-	public function index(){
-		$result = $this->custom->testin();
-		if(!empty($result)){
-			$data['customers'] = result;
-			$this->load->view('mypage');
-		}
+		$this->load->model('mydata');
+		$data['customers'] = $this->mydata->testin();
+		$this->load->view('mypage',$data);
 	}
 	
 	public function practice(){
