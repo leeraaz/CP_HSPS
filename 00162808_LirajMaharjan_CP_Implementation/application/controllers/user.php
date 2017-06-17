@@ -28,7 +28,7 @@ class User extends CI_Controller{//controller class is in system/core/controller
 	//	echo $this->input->POST("uname"); //passing username //input refers to data input
 		
 		if($saveStatus==1){
-		$data['msg']='Value inserted successfully';
+		$data['message']='Value inserted successfully';
 		$this->load->view("mypage",$data);
 		}
 		else{

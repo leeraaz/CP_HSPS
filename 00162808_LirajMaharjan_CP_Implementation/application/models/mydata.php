@@ -1,9 +1,9 @@
 <?PHP
 	class mydata extends CI_Model{
 		public function saveIt($username,$password){
-			//echo "username $username password $password";
-			//return $this->db->query("insert into user values('','$username','$password')");
-			//echo "Value inserted";
+			echo "username $username password $password";
+			$data= $this->db->query("insert into user values('','$username','$password')");
+			echo "Value inserted";
 			
 			//ACTIVE RECORDS..... INSERTING INTO TABLE WITHOUT QUERY
 			$data=array(

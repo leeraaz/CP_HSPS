@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title> Staff Registration</title>
+<title> Update Staff </title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="<?php echo base_url();?>assets/CSS/bootstrap.min.css" rel="stylesheet">
 <link href="<?php echo base_url();?>assets/CSS/design.css" rel="stylesheet">
@@ -29,7 +29,7 @@
 <div id="staffForm">
 <form action="<?php echo base_url();?>Staff/saveData" method="POST">
 	<font size="5px" color="white">
-		<font size="6px"><b> Staff Registration </b></font>
+		<font size="6px"><b> Update Staff </b></font>
 		<div class="form-group">
 		<label for="FirstName">First Name:</label>
 		<input type="FirstName" class="form-control" id="FirstName" placeholder="Enter First Name" name="sName">

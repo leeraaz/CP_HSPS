@@ -4,6 +4,9 @@ class Owner extends CI_Controller{
 		$this->load->view("index.html");//load refers to view
 	}
 	
+	public function ownerLogin(){
+		$this->load->view("OwnerStaffLogin.php");
+	}
 	public function cusRegistration(){
 		$this->load->view("customerRegistration.php");//load refers to view
 	}
@@ -41,7 +44,7 @@ class Owner extends CI_Controller{
 	}
 	
 	public function pipefitting(){
-		$this->load->view("pipe&fittings.php");
+		$this->load->view("ItemPage.php");
 	}
 }
 ?>

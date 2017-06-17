@@ -20,8 +20,9 @@
 	</ul>
 </div>
 <div id="data">
-<h3>hello everyone</h3>
-
+<?php
+echo 'welcome -'.$this->session->userdata('USERNAME').' and you ID is.'.$this->session->userdata('STAFF_ID');
+?>
 </div>
 </body>
 </html>

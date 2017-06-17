@@ -20,7 +20,7 @@ Password:<input type="password" name="pwd"/> <br/>
 <input type="submit" value="Signup" />
 
 <?php
-if(isset($msg)) echo $msg;
+if(isset($message)) echo $msg;
 ?>
 </form></br>
 <table border="2" align="center">

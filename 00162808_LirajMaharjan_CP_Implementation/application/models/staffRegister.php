@@ -19,10 +19,10 @@
 			$sql=$this->db->where(['USERNAME'=>$username,'PASSWORD'=>$password])->get('staff');
 			if($sql->num_rows()>=1){
 				return $sql->row()->STAFF_TYPE_ID;
-				echo "get login";
+				//echo "get login";
 			}
 			else{
-				echo "Sorry try again.";
+				return false;
 			}
 		}	
 	}

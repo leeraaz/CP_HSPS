@@ -14,18 +14,17 @@
 	<ul>
 		<li> <a href="" >Add Supplier </a></li>
 		<li> <a href="" >Add Pipe and Fittings </a></li>
-		<li> <a href="" >Add Staff</a></li>
-		<li> <a href="<?php echo base_url();?>Staff/getCustomer" >Update Supplier </a></li>
-		<li> <a href="" >Update Pipe and Fittings </a></li>
-		<li> <a href="" >Update Staff</a></li>
-		<li> <a href="" >Delete Supplier </a></li>
-		<li> <a href="" >Delete Pipe and Fittings </a></li>
-		<li> <a href="" >Delete Staff</a></li>
+		<li> <a href="<?php echo base_url();?>owner/staffRegister" >Add Staff</a></li>
+		<li> <a href="<?php echo base_url();?>Staff/getCustomer" >Edit Supplier </a></li>
+		<li> <a href="" >Edit Pipe and Fittings </a></li>
+		<li> <a href="<?php echo base_url();?>Staff/getStaff" >Edit Staff</a></li>
+		<li> <a href="<?php echo base_url();?>Staff/logout" >Logout </a></li>
 	</ul>
 </div>
 <div id="data">
-
-
+<?php
+echo 'welcome -'.$this->session->userdata('USERNAME').' and you ID is.'.$this->session->userdata('STAFF_ID');
+?>
 </div>
 </body>
 </html>

@@ -1,113 +1,142 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-<head> 
-<title>Registration Form</title>
-	<link href="<?php echo base_url();?>assets/CSS/design.css" rel="stylesheet">
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<head>
+<title> Customer Registration</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="<?php echo base_url();?>assets/CSS/bootstrap.min.css" rel="stylesheet">
+<link href="<?php echo base_url();?>assets/CSS/design.css" rel="stylesheet">
+<style>
+ul {
+    list-style-type: none;
+    margin-top: 0;
+    padding: 0;
+    overflow: hidden;
+	width:60%;
+}
+
+li {
+    float: left;
+	height:35px;
+	line-height:10px;
+	color:white;
+	margin:3px;
+	margin-top:6%;
+}
+
+li a, .dropbtn {
+    display: inline-block;
+    color: #2c3e50;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: #7f8c8d;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+</style>
 </head>
-<script type="text/javascript">
-	function valid(){
-		if(form.cPassword.value == ""){
-			alert("Enter the password");
-			return false;
-		}
-		if((form.cPassword.value).length <6){
-			alert("Password should be minimum 6 character");
-			return false;
-		}
-		if(form.crPassword.value == ""){
-			alert("Enter the configuration password.");
-			return false;
-		}
-		if(form.crPassword.value != form.cPassword.value){
-			alert("Password didnot matched.");
-			return false;
-		}
-		else{
-		alert("Password match");
-		header("refresh:5; url=<?php echo base_url();?>Owner/customerRegistration");
-		return false;
-		}
-	return true;
-	}
-</script>
 <body>
-		<div class="up">
-		<div class="logo">
-			<img src="http://localhost/CI/assets/Images/login.jpg" width="30%" height="20%"/>
-		</div>
-		<div class="heading">
-			<font color="pink">
-				<h1><b>Hardware Sales and Purchases Shop<b/></h1>
-			</font>
-		</div>
-	
-		<div id="menu">
-			<ul>
-				<li><a href="index.html"> HOME </a></li>
-				<li><a href="index.html"> PIPE & FITTINGS</a></li>
-				<li><a href="gallery.html"> GALLERY </a></li>
-				<li><a href="services.php"> SERVICES </a></li>
-			<ul>
-		</div>
+<div id="up">
+	<div class="logo">
+		<img src="http://localhost/CI/assets/Images/logo.png" width="60%" height="30%"/>
 	</div>
-	<br/><br/><br/><br/><br/><br/><br/><br/>
-	<hr/>
-	<font color="white" size="5px">
-	<div class="registrationForm">
-	<form action="<?php echo base_url();?>Customer/saveCusData" method="POST">
-	<font size="6px">Register Form for Customer</font>
-	<table>
-		<tr>
-			<td>First Name: </td>
-			<td> <input type="text" name="cName" required="required"> </td> 
-		</tr>	
-		<tr>
-			<td>Last Name: </td>
-			<td> <input type="text" name="cLName" required="required"> </td> 
-		</tr>
-		<tr>
-			<td> Adress: </td>
-			<td> <input type="text" name="cAddress" required="required"> </td>
-		</tr>	
-		<tr>
-			<td> Gender: </td> 
-			<td> 
-				<input type="radio" name="cGender" value="Male" required="required"/> Male
-				<input type="radio" name="cGender" value="Female" required="required"/> Female<br/>
-				<input type="radio" name="cGender" value="Others" required="required"/>Others<br/>
-			</td>
-		</tr>
-		<tr>
-			<td> Contact No.: </td>
-			<td> <input type="text" name="cContact" required="required"> </td>
-		</tr>
-		<tr>
-			<td> Email: </td>
-			<td> <input type="email" name="cEmail" required="required" placeholder="abc@gmail.com"> </td>
-		</tr>	
-		<tr>
-			<td> Username: </td>
-			<td> <input type="text" name="cUsername" required="required"> </td>
-		</tr>
-		<tr>
-			<td> Password: </td>
-			<td> <input type="password" name="cPassword" required="required"> </td>
-		</tr>
-		<tr>
-			<td> Re-enter Password: </td>
-			<td> <input type="password" name="crPassword" required="required"> </td>
-			</tr>
-		<tr align="center">
-			<td > <input type="submit" name="submit" onClick="return valid();" value="Register"> </td>
-		</tr>
-		
-	</table>
+	<div class="heading">
+		<font color="#2c3e50">
+			<h1><b>Hardware Sales and Purchases Shop<b/></h1>
+		</font>
 	</div>
+	<div id="menu">
+		<ul>
+			<li><a href="<?php echo base_url();?>owner/homepage"> Home </a></li>
+			<li><a href="<?php echo base_url();?>owner/pipefitting"> Pipe & Fittings</a></li>
+			<li><a href="<?php echo base_url();?>owner/gallery"> Gallery </a></li>	
+			<li class="dropdown">
+			<a href="javascript:void(0)" class="dropbtn">Online Services</a>
+			<div class="dropdown-content">
+			  <a href="<?php echo base_url();?>owner/ownerLogin">Owner/Staff Login</a>
+			  <a href="<?php echo base_url();?>owner/cusLogin">Customer Login</a>
+			  <a href="<?php echo base_url();?>owner/cusRegistration">Customer Registration</a>
+			</div>
+		  </li>
+		</ul>
+	</div>
+</div>
+<div id="Form">
+<form action="<?php echo base_url();?>Customer/saveCusData" method="POST">
+	<font size="5px" color="white">
+		<font size="6px"><b> Customer Registration </b></font>
+		<div class="form-group">
+		<label for="FirstName">First Name:</label>
+		<input type="FirstName" class="form-control" id="FirstName" placeholder="Enter First Name" name="cName">
+		</div>
+		<div class="form-group">
+		<label for="LastName">Last Name:</label><br/>
+		<input type="LastName" class="form-control" id="LastName" placeholder="Enter First Name" name="cLName">
+		</div>
+		<div class="form-group">
+		<label for="Address">Address:</label>
+		<input type="Address" class="form-control" id="Address" placeholder="Enter Address" name="cAddress">
+		</div>
+		<div class="form-group">
+		<label for="Gender">Gender:</label>
+		<input type="radio"  id="Gender" name="cGender" value="Male" required="required"/> Male
+		<input type="radio" id="Gender" name="cGender" value="Female" required="required"/> Female
+		<input type="radio" id="Gender" name="cGender" value="Others" required="required"/> Others
+		</div>
+		<div class="form-group">
+		<label for="Contact">Contact Number:</label>
+		<input type="Contact" class="form-control" id="Contact" placeholder="Enter Contact Number" name="cContact">
+		</div>
+		<div class="form-group">
+		<label for="Email">Email:</label><br/>
+		<input type="Email" class="form-control" id="Email" placeholder="Enter Email" name="cEmail">
+		</div>
+		<div class="form-group">
+		<label for="Username">Username:</label>
+		<input type="Username" class="form-control" id="Username" placeholder="Enter Username" name="cUsername">
+		</div>
+		<div class="form-group">
+		<label for="Password">Password:</label>
+		<input type="Password" class="form-control" id="Password" placeholder="Enter Password" name="cPassword">
+		</div>
+		<div class="form-group">
+		<label for="rPassword">Re-enter Password:</label><br/>
+		<input type="password" class="form-control" id="rPassword" placeholder="Enter password" name="crPassword">
+		</div>
+		<button type="submit" style="margin-left:40%; width:15%;" class="btn btn-primary">Register</button><br/>
 		<?php
 			if(isset($msg)) echo $msg;
 		?>
 	</font>
 	</form>
+</div>
 </body>
 </html>

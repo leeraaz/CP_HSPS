@@ -36,34 +36,40 @@ class Staff extends CI_Controller{
 			$login=$this->staffRegister->stLogin($username,$password);
 			if($login){
 				if($login==1){
-					redirect(base_url() . 'owner/ownerPanel');
+					$this->session->set_userdata('STAFF_ID',$login);
+					$this->session->set_userdata('USERNAME',$username);
+					return redirect('owner/ownerPanel');
 				}
 				else{
+					$this->session->set_userdata('STAFF_ID',$login);
+					$this->session->set_userdata('USERNAME',$username);
 					redirect(base_url(). 'owner/staffPanel');
 				}
-				
 			}
 			else{
-				echo "not login";
+				$this->session->set_flashdata('error','Invalid Username and Password');
+				redirect(base_url(). 'owner/ownerLogin');
 			}
 		}
 		
 			
-		public function getCustomer(){
+	public function getCustomer(){
 		$this->load->model('OwnerModel');
 		$data['customers'] = $this->OwnerModel->customerList();
 		$this->load->view('updateSupplier',$data);
-	}
-
-		
-		function enter(){
-			if($this->session->userdata('username')!=''){
-				echo 'welvome -'.$this->session->userdata('username');
-			}
-			else{
-				redirect(base_url().'owner/homepage');
-			}
 		}
+		
+	public function getStaff(){
+			$this->load->model('OwnerModel');
+			$dataStaff['staff'] = $this->OwnerModel->staffList();
+			$this->load->view('editStaff',$dataStaff);
+		}
+	
+	public function logout(){
+		$this->session->unset_userdata('username');
+		redirect(base_url().'owner/ownerLogin'); 
+	}
+	
 	
 }	
 ?>

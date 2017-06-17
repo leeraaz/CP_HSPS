@@ -15,25 +15,23 @@ ul {
 
 li {
     float: left;
-	border:2px solid white;
 	height:35px;
 	line-height:10px;
-	background:black;
 	color:white;
 	margin:3px;
-	margin-top:8%;
+	margin-top:6%;
 }
 
 li a, .dropbtn {
     display: inline-block;
-    color: white;
+    color: #2c3e50;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }
 
 li a:hover, .dropdown:hover .dropbtn {
-    background-color: red;
+    background-color: #7f8c8d;
 }
 
 li.dropdown {
@@ -65,23 +63,24 @@ li.dropdown {
 </style>
 </head>
 <body>
-<div class="up">
+<div id="up">
 	<div class="logo">
-		<img src="http://localhost/CI/assets/Images/logo.png" width="60%" height="30%"/>
+		<img src="http://localhost/CI/assets/Images/logo.png" alt="Godown"width="60%" height="30%"/>
 	</div>
 	<div class="heading">
-		<font color="pink">
+		<font color="#2c3e50">
 			<h1><b>Hardware Sales and Purchases Shop<b/></h1>
 		</font>
 	</div>
 	<div id="menu">
 		<ul>
-			<li><a href="<?php echo base_url();?>owner/homepage"> HOME </a></li>
-			<li><a href="<?php echo base_url();?>owner/pipefitting"> PIPE & FITTINGS</a></li>
-			<li><a href="<?php echo base_url();?>owner/gallery"> GALLERY </a></li>	
+			<li><a href="<?php echo base_url();?>owner/homepage"> Home </a></li>
+			<li><a href="<?php echo base_url();?>owner/pipefitting"> Pipe & Fittings</a></li>
+			<li><a href="<?php echo base_url();?>owner/gallery"> Gallery </a></li>	
 			<li class="dropdown">
 			<a href="javascript:void(0)" class="dropbtn">Online Services</a>
 			<div class="dropdown-content">
+			  <a href="<?php echo base_url();?>owner/cusLogin">Owner/Staff Login</a>
 			  <a href="<?php echo base_url();?>owner/cusLogin">Customer Login</a>
 			  <a href="<?php echo base_url();?>owner/cusRegistration">Customer Registration</a>
 			</div>
@@ -89,11 +88,10 @@ li.dropdown {
 		</ul>
 	</div>
 </div>
-	<br/><br/><br/><br/><br/><br/><br/><br/>
 <hr/>
 <div class="homepage">
 		<div class="about">
-			<img src="<?php echo base_url(); ?>assets/Images/stock.jpg" width="120%" height="900%" />
+			<img src="<?php echo base_url(); ?>assets/Images/stock.jpg" width="100%" height="100%" />
 			<font align="left" size="5" color="white">
 			<p>
 				Hardware Sales and Purchase Shop is one of the reputed hardware shop situated in Teku, Kathmandu. 
@@ -103,27 +101,9 @@ li.dropdown {
 			</p>
 			</font>
 		</div>
-		<div class="loginForm">
-			<form action="<?php echo base_url();?>Staff/stfLogin" method="POST">
-				<font size="5px" color="white" align="center">
-				<font size="6px"><b>Login Form </b></font><br/>
-				<label>Username:</label>
-				<input type="text" name="suser" required="required" />
-				<br/>
-				<label>Password:</label>
-				<input type="password" name="spwd" required="required" />	
-				<br/>
-				<input type="submit" name="submit" onClick="return val();" value="Login" />
-				<br/>	
-				<font size="5px" color="white" align="left">
-					If you are new then, first get registered. <br>
-					<a href="<?php echo base_url();?>owner/registrationPage	"> Here </a>
-					<?php echo $this->session->flashdata('error'); ?>
-				</font>
-			</form>
-		</div>
 		<div class="items">
-		<h4> Pipe and fittings </h4>
+		<font align="left" size="5" color="white">
+		<h3 align="center"> Pipe and fittings </h3>
 			<div class="item1">
 				<img src="<?php echo base_url(); ?>assets/Images/elbow.jpg" width="100%" height="30%" />
 				<p>
@@ -156,9 +136,9 @@ li.dropdown {
 				For more information please visit following link.
 				<a href="<?php echo base_url();?>owner/pipefitting" style="text-decoration:none; color:white; background:black">Here</a>
 			</div>
+		</font>
 		</div>
-	</div>
-	<font color="white">
+		<font color="#2c3e50">
 			<div class="bottom" align="center">
 				Teku, Kathmandu</br>
 				Contact No. : +97765464564<br/>
@@ -166,5 +146,6 @@ li.dropdown {
 				<u>hardwareS&P@gmail.com</u></br></br>
 			</div>
 		</font>
+</div>
 </body>
 </html>

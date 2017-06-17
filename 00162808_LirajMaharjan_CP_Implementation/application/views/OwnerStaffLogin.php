@@ -89,26 +89,27 @@ li.dropdown {
 		</ul>
 	</div>
 </div>
-	<div id="Form">
-		<form action="<?php echo base_url();?>Customer/cusLogin" method="POST">
+<div id="Form">
+		<form action="<?php echo base_url();?>Staff/stfLogin" method="POST" >
 			<font size="5px" color="white">
-				<font size="6px"><b> Customer Login </b></font>
+				<font size="6px"><h2 align="center"> Owner & Staff Login </h2></font>
 				<div class="form-group">
 				<label for="username">Username:</label>
-				<input type="username" class="form-control" id="username" placeholder="Enter username" name="cusUsername">
+				<input type="username" class="form-control" id="username" placeholder="Enter username" name="suser">
 				</div>
 				<div class="form-group">
 				<label for="pwd">Password:</label><br/>
-				<input type="password" class="form-control" id="pwd" placeholder="Enter password" name="cusPassword">
+				<input type="password" class="form-control" id="pwd" placeholder="Enter password" name="spwd">
 				</div>
 				<div class="checkbox">
 				<label><input type="checkbox" name="remember"> Remember me</label><br/>
 				</div>
-				<button type="submit" style="margin-left:40%; width:15%;" class="btn btn-primary">Login</button><br/>
-				If you are new then, first get registered.
-				<a href="<?php echo base_url();?>owner/cusRegistration	"> Here </a>
-				
+				<button type="submit" style="margin-left:40%; width:15%;" class="btn btn-primary" onclick="val();">Login</button>
+				<?php
+					echo  $this->session->flashdata("error");
+				?>
 			</font>
 		</form>
-	</div>
+</div>
 </body>
+</html>
