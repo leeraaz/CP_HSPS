@@ -61,6 +61,9 @@ li.dropdown {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+.val_error{
+	color:#FF1F1F;
+}
 </style>
 </head>
 <body>
@@ -90,7 +93,7 @@ li.dropdown {
 	</div>
 </div>
 <div id="Form">
-<form action="<?php echo base_url();?>Customer/saveCusData" method="POST">
+<form action="<?php echo base_url();?>Customer/saveCusData" method="POST" onsubmit="return validate()" name="form">
 	<font size="5px" color="white">
 		<font size="6px"><b> Customer Registration </b></font>
 		<div class="form-group">
@@ -118,10 +121,12 @@ li.dropdown {
 		<div class="form-group">
 		<label for="Email">Email:</label><br/>
 		<input type="Email" class="form-control" id="Email" placeholder="Enter Email" name="cEmail">
+		<div id="email_error" class="val_error"></div>
 		</div>
 		<div class="form-group">
 		<label for="Username">Username:</label>
 		<input type="Username" class="form-control" id="Username" placeholder="Enter Username" name="cUsername">
+		<div id="name_error" class="val_error"></div>
 		</div>
 		<div class="form-group">
 		<label for="Password">Password:</label>
@@ -130,6 +135,7 @@ li.dropdown {
 		<div class="form-group">
 		<label for="rPassword">Re-enter Password:</label><br/>
 		<input type="password" class="form-control" id="rPassword" placeholder="Enter password" name="crPassword">
+		<div id="password_error" class="val_error"></div>
 		</div>
 		<button type="submit" style="margin-left:40%; width:15%;" class="btn btn-primary">Register</button><br/>
 		<?php
@@ -140,3 +146,71 @@ li.dropdown {
 </div>
 </body>
 </html>
+<script type="text/javascript">
+	//getting all input text objects
+	var email = document.forms["form"]["cEmail"];
+	var username = document.forms["form"]["cUsername"];
+	var password = document.forms["form"]["cPassword"];
+	var comPassword = document.forms["form"]["crPassword"];
+	
+	//getting all error display objects
+	var name_error = document.getElementById("name_error");
+	var email_error = document.getElementById("email_error");
+	var password_error = document.getElementById("password_error");
+	
+	//setting all event listeners
+	username.addEventListener("blur",nameVerify,true);
+	email.addEventListener("blur",emailVerify,true);
+	password.addEventListener("blur",passwordVerify,true);
+	
+	//validation function
+	function validate(){
+		if(email.value == ""){
+			email.style.border = "1px solid red";
+			email_error.textContent = "Email is required";
+			email.focus();
+			return false;
+		}
+		   
+		if(username.value == ""){
+			username.style.border = "1px solid red";
+			name_error.textContent = "Username is required";
+			username.focus();
+			return false;
+		}
+		
+		if(password.value == ""){
+			password.style.border = "1px solid red";
+			password_error.textContent = "Password is required";
+			password.focus();
+			return false;
+		}
+		
+		//checking if the password and Re-password match or not
+		if(password.value != comPassword.value ){
+			password.style.border = "1 px red";
+			comPassword.style.border = "1 px red";
+			password_error.innerHTML = "The password didnot match";
+			return false;
+		}
+	}
+
+	function nameVerify(){
+		if(username.value !=""){
+			username.style.border = "1px solid #5E6E66";
+			name_error.innerHTML = "";
+			return true;
+		}
+		if(email.value !=""){
+			email.style.border = "1px solid #5E6E66";
+			email_error.innerHTML = "";
+			return true;
+		}
+		if(password.value !=""){
+			password.style.border = "1px solid #5E6E66";
+			password.innerHTML = "";
+			return true;
+		}
+	}
+</script>
+

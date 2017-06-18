@@ -104,7 +104,7 @@ li.dropdown {
 				<div class="checkbox">
 				<label><input type="checkbox" name="remember"> Remember me</label><br/>
 				</div>
-				<button type="submit" style="margin-left:40%; width:15%;" class="btn btn-primary" onclick="val();">Login</button>
+				<button type="submit" style="margin-left:40%; width:15%;" class="btn btn-primary" onclick="val();">Login</button></br>
 				<?php
 					echo  $this->session->flashdata("error");
 				?>

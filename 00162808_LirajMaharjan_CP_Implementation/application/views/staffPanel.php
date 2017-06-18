@@ -16,7 +16,7 @@
 		<li> <a href="" >Add </a></li>
 		<li> <a href="" >View Order</a> </li>
 		<li> <a href="" >Prepare bill</a> </li>
-		<li> <a href="" >Logout</a> </li>
+		<li> <a href="<?php echo base_url();?>Staff/logout" >Logout </a></li>
 	</ul>
 </div>
 <div id="data">

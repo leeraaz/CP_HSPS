@@ -47,7 +47,7 @@ class Staff extends CI_Controller{
 				}
 			}
 			else{
-				$this->session->set_flashdata('error','Invalid Username and Password');
+				$this->session->set_flashdata('error','Invalid Username or Password');
 				redirect(base_url(). 'owner/ownerLogin');
 			}
 		}
