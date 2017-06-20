@@ -24,6 +24,14 @@
 			else{
 				return false;
 			}
-		}	
+		}
+
+		public function updateStaff(){
+			$data=array(
+				"username"=>"heheha" 
+			);
+			$this->db->where("STAFF_ID",12);
+			$this->db->update("staff",$data);
+		}
 	}
 ?>

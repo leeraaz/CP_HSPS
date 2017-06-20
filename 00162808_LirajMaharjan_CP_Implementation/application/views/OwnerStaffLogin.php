@@ -65,10 +65,10 @@ li.dropdown {
 </head>
 <body>
 <div id="up">
-	<div class="logo">
+	<div id="logo">
 		<img src="http://localhost/CI/assets/Images/logo.png" width="60%" height="30%"/>
 	</div>
-	<div class="heading">
+	<div id="heading">
 		<font color="#2c3e50">
 			<h1><b>Hardware Sales and Purchases Shop<b/></h1>
 		</font>
@@ -104,7 +104,7 @@ li.dropdown {
 				<div class="checkbox">
 				<label><input type="checkbox" name="remember"> Remember me</label><br/>
 				</div>
-				<button type="submit" style="margin-left:40%; width:15%;" class="btn btn-primary" onclick="val();">Login</button></br>
+				<button type="submit" style="margin-left:40%; width:15%;" class="btn btn-primary">Login</button></br>
 				<?php
 					echo  $this->session->flashdata("error");
 				?>

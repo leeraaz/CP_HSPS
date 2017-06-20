@@ -65,6 +65,12 @@ class Staff extends CI_Controller{
 			$this->load->view('editStaff',$dataStaff);
 		}
 	
+	public function updateData(){
+		$this->load->view("updateStaff.php");
+		$this->load->model("staffRegister");
+		$this->staffRegister->updateStaff();
+	}
+	
 	public function logout(){
 		$this->session->unset_userdata('username');
 		redirect(base_url().'owner/ownerLogin'); 

@@ -65,10 +65,10 @@ li.dropdown {
 </head>
 <body>
 <div id="up">
-	<div class="logo">
+	<div id="logo">
 		<img src="http://localhost/CI/assets/Images/logo.png" width="60%" height="30%"/>
 	</div>
-	<div class="heading">
+	<div id="heading">
 		<font color="#2c3e50">
 			<h1><b>Hardware Sales and Purchases Shop<b/></h1>
 		</font>
@@ -86,10 +86,10 @@ li.dropdown {
 			  <a href="<?php echo base_url();?>owner/cusRegistration">Customer Registration</a>
 			</div>
 		  </li>
-		</ul>
-	</div>
+		</ul> 
+	</div>	
 </div>
-	<div id="Form">
+<div id="Form">
 		<form action="<?php echo base_url();?>Customer/cusLogin" method="POST">
 			<font size="5px" color="white">
 				<font size="6px"><b> Customer Login </b></font>

@@ -18,7 +18,7 @@
 		<li> <a href="<?php echo base_url();?>Staff/getCustomer" >Edit Supplier </a></li>
 		<li> <a href="" >Edit Pipe and Fittings </a></li>
 		<li> <a href="" >Edit Staff</a></li>
-		<li> <a href="" >Logout </a></li>
+		<li> <a href="<?php echo base_url();?>Staff/logout" >Logout </a></li>
 	</ul>
 </div>
 <div id="data">
