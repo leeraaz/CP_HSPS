@@ -22,9 +22,9 @@
 	</ul>
 </div>
 <div id="data">
-<?php
-echo 'welcome -'.$this->session->userdata('USERNAME').' and you ID is.'.$this->session->userdata('STAFF_ID');
-?>
+	<?php
+	echo 'welcome -'.$this->session->userdata('USERNAME').' and you ID is.'.$this->session->userdata('STAFF_ID');
+	?>
 </div>
 </body>
 </html>

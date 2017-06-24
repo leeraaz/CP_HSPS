@@ -61,6 +61,9 @@ li.dropdown {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+.val_error{
+	color:#E1F5FE;
+}
 </style>
 </head>
 <body>
@@ -90,21 +93,24 @@ li.dropdown {
 	</div>	
 </div>
 <div id="Form">
-		<form action="<?php echo base_url();?>Customer/cusLogin" method="POST">
+		<form action="<?php echo base_url();?>Customer/cusLogin" method="POST" onsubmit="return loginValid()" name="loginFrom">
 			<font size="5px" color="white">
 				<font size="6px"><b> Customer Login </b></font>
 				<div class="form-group">
 				<label for="username">Username:</label>
 				<input type="username" class="form-control" id="username" placeholder="Enter username" name="cusUsername">
+				<div id="username_error" class="val_error"></div>
 				</div>
 				<div class="form-group">
-				<label for="pwd">Password:</label><br/>
-				<input type="password" class="form-control" id="pwd" placeholder="Enter password" name="cusPassword">
+				<label for="password">Password:</label><br/>
+				<input type="password" class="form-control" id="password" placeholder="Enter password" name="cusPassword">
+				<div id="password_error" class="val_error"></div>
 				</div>
 				<div class="checkbox">
 				<label><input type="checkbox" name="remember"> Remember me</label><br/>
 				</div>
-				<button type="submit" style="margin-left:40%; width:15%;" class="btn btn-primary">Login</button><br/>
+				<input type="reset" class="btn btn-danger" style="margin-left:33%; width:15%;" />
+				<button type="submit" class="btn btn-primary">Login</button><br/>
 				If you are new then, first get registered.
 				<a href="<?php echo base_url();?>owner/cusRegistration	"> Here </a>
 				
@@ -112,3 +118,48 @@ li.dropdown {
 		</form>
 	</div>
 </body>
+
+<script type="text/javascript">
+	//getting input value
+	var cusUsername = document.forms["loginFrom"]["cusUsername"];
+	var cusPassword = document.forms["loginFrom"]["cusPassword"];
+	
+	//getting all error display objects
+	var username_error = document.getElementById("username_error");
+	var password_error = document.getElementById("password_error");
+	
+	//setting all event listeners
+	cusUsername.addEventListener("blur",usernameVerify,true);
+	cusPassword.addEventListener("blur",passwordVerify,true);
+	
+	function loginValid(){
+		if(cusUsername.value == ""){
+			cusUsername.style.border = "1px solid red";
+			username_error.textContent = "Username is required";
+			cusUsername.focus();
+			return false;
+		}
+		   
+		if(cusPassword.value == ""){
+			cusPassword.style.border = "1px solid red";
+			password_error.textContent = "Password is required";
+			cusPassword.focus();
+			return false;
+		}
+	}
+	
+	function usernameVerify(){
+		if(cusUsername.value !=""){
+			cusUsername.style.border = "1px solid #5E6E66";
+			username_error.innerHTML = "";
+			return true;
+		}
+	}	
+	function passwordVerify(){
+		if(cusPassword.value !=""){
+			cusPassword.style.border = "1px solid #5E6E66";
+			password_error.innerHTML = "";
+			return true;
+		}
+	}	
+</script>

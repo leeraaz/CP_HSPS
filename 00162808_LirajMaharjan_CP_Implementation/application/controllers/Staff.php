@@ -65,10 +65,28 @@ class Staff extends CI_Controller{
 			$this->load->view('editStaff',$dataStaff);
 		}
 	
-	public function updateData(){
-		$this->load->view("updateStaff.php");
+	public function updateStaff(){
+		$sID=$this->input->POST("sID");
+		$sName=$this->input->POST("sName");
+		$sLName=$this->input->POST("sLName");
+		$sType=$this->input->POST("sType");
+		$sAddress=$this->input->POST("sAddress");
+		$sGender=$this->input->POST("sGender");
+		$sContact=$this->input->POST("sContact");
+		$sEmail=$this->input->POST("sEmail");
+		$sUsername=$this->input->POST("sUsername");
+		$sPassword=MD5($this->input->POST("sPassword"));
+		
 		$this->load->model("staffRegister");
-		$this->staffRegister->updateStaff();
+		$staffDetail['staff'] = $this->staffRegister->staffList($sID,$sName,$sLName,$sType,$sAddress,$sGender,
+													 $sContact,$sEmail,$sUsername,$sPassword);
+		if($staffDetail){
+			$this->load->view('updateStaff',$staffDetail);
+			echo "Updated";
+		}
+		else{
+			echo "not updated";
+		}
 	}
 	
 	public function logout(){

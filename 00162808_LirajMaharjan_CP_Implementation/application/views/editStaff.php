@@ -55,7 +55,6 @@
 	<td> <?php echo $row->EMAIL; ?> </td>
 	<td> <?php echo $row->USERNAME; ?> </td>
 	<td> <?php echo $row->PASSWORD; ?> </td>
-	<td> <a href="">Update</a> </td>
 	<td> <a href="">Delete</a> </td>
 </tr>
 			<?php

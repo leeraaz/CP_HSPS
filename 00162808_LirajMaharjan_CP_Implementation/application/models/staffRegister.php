@@ -26,12 +26,22 @@
 			}
 		}
 
-		public function updateStaff(){
-			$data=array(
-				"username"=>"heheha" 
-			);
-			$this->db->where("STAFF_ID",12);
-			$this->db->update("staff",$data);
+		public function staffList($sID,$sName,$sLName,$sType,$sAddress,$sGender,$sContact,$sEmail,$sUsername,$sPassword){
+			$array=array(
+				"STAFF_ID" => $sID,
+				"STAFF_FIRSTNAME" => $sName,
+				"STAFF_LASTNAME" => $sLName,
+				"STAFF_TYPE_ID" => $sType,
+				"STAFF_ADDRESS" => $sAddress,
+				"GENDER" => $sGender,
+				"CONTACT" => $sContact,
+				"EMAIL" => $sEmail,
+				"USERNAME" => $sUsername,
+				"PASSWORD" => $sPassword
+				);
+				$this->db->get("staff");
+				$this->db->update("staff",$array);
+				return "Data has been updated";
+			}
 		}
-	}
 ?>

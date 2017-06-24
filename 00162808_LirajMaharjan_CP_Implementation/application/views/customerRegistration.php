@@ -113,9 +113,9 @@ li.dropdown {
 		</div>
 		<div class="form-group">
 		<label for="Gender">Gender:</label>
-		<input type="radio"  id="Gender" name="cGender" value="Male" required="required"/> Male
-		<input type="radio" id="Gender" name="cGender" value="Female" required="required"/> Female
-		<input type="radio" id="Gender" name="cGender" value="Others" required="required"/> Others
+		<input type="radio" class="radio-control" id="Gender" name="cGender" value="Male" required="required"/> Male
+		<input type="radio" class="radio-control" id="Gender" name="cGender" value="Female" required="required"/> Female
+		<input type="radio" class="radio-control" id="Gender" name="cGender" value="Others" required="required"/> Others
 		</div>
 		<div class="form-group">
 		<label for="Contact">Contact Number:</label>
@@ -157,7 +157,7 @@ li.dropdown {
 	var cName = document.forms["form"]["cName"];
 	var cLName = document.forms["form"]["cLName"];
 	var address = document.forms["form"]["cAddress"];
-	var gender = document.forms["form"]["cGender"];
+	//var gender = document.forms["form"]["cGender"];
 	var contact = document.forms["form"]["cContact"];
 	var email = document.forms["form"]["cEmail"];
 	var username = document.forms["form"]["cUsername"];
@@ -168,7 +168,7 @@ li.dropdown {
 	var cname_error = document.getElementById("cname_error");
 	var lname_error = document.getElementById("lname_error");
 	var address_error = document.getElementById("address_error");
-	var gender_error = document.getElementById("gender_error");
+	//var gender_error = document.getElementById("gender_error");
 	var contact_error = document.getElementById("contact_error");
 	var email_error = document.getElementById("email_error");
 	var username_error = document.getElementById("username_error");
@@ -179,7 +179,7 @@ li.dropdown {
 	cName.addEventListener("blur",cNameVerify,true);
 	cLName.addEventListener("blur",cLNameVerify,true);
 	cAddress.addEventListener("blur",cAddressVerify,true);
-	cGender.addEventListener("blur",cGenderVerify,true);
+	//cGender.addEventListener("blur",cGenderVerify,true);
 	cContact.addEventListener("blur",cContactVerify,true);
 	cEmail.addEventListener("blur",cEmailVerify,true);
 	username.addEventListener("blur",nameVerify,true);

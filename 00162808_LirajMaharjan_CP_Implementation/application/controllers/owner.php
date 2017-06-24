@@ -46,5 +46,9 @@ class Owner extends CI_Controller{
 	public function pipefitting(){
 		$this->load->view("ItemPage.php");
 	}
+	
+	public function updateStaff(){
+		$this->load->view('updateStaff.php');
+	}
 }
 ?>

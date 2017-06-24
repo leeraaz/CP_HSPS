@@ -1,23 +1,28 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-<head> 
-<title>Registration Form</title>
-<link href="<?php echo base_url();?>assets/CSS/design.css" rel="stylesheet">
+<head>
+	<title>Customer Order Page</title>
+	<link content="text/css" href="<?php echo base_url();?>assets/CSS/design.css" rel="stylesheet" /> 
 </head>
 <body>
-		<div class="up">
-		<div class="logo">
-			<img src="http://localhost/CI/assets/Images/login.jpg" width="30%" height="20%"/>
-		</div>
-		<div class="heading">
-			<font color="pink">
-				<h1><b>Hardware Sales and Purchases System<b/></h1>
-			</font>
-		</div>
-	</div>
-	<br/><br/><br/><br/><br/><br/><br/><br/>
-	<hr/>
-	<font color="white" size="5px">
+<div id="header">
+	<center><img id="adminlogo" src="<?php echo base_url();?>assets/Images/owner.png" alt="adminlogo"><br>
+	Customer PANEL.
+	</center>
+</div>
+<div id="sidebar">
+	<ul><li>
+		<a href="" target="_blank" style="color:white; text-decoration:none;">
+		 View items</a> </li>
+		<li> Place Order </li>
+		<li> Prepare bill </li>
+		<li> Update profile </li>
+		<li><a href="<?php echo base_url();?> Customer/cusLogout"> Logout </a></li>
+	</ul>
+</div>
+<div id="data">
+<h3>hello everyone</h3>
+<font color="white" size="5px">
 	<div class="placeOrder">
 	<font size="6px">Order Form</font>
 	<table border="2px">
@@ -73,5 +78,7 @@
 	</table>
 	</div>
 	</font>
+
+</div>
 </body>
 </html>

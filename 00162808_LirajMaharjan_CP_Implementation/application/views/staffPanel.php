@@ -13,16 +13,16 @@
 </div>
 <div id="sidebar">
 	<ul>
-		<li> <a href="" >Add </a></li>
+		<li> <a href="<?php echo base_url();?>staff/updateStaff" >Update Profile </a></li>
 		<li> <a href="" >View Order</a> </li>
 		<li> <a href="" >Prepare bill</a> </li>
 		<li> <a href="<?php echo base_url();?>Staff/logout" >Logout </a></li>
 	</ul>
 </div>
 <div id="data">
-<?php
-echo 'welcome -'.$this->session->userdata('USERNAME').' and you ID is.'.$this->session->userdata('STAFF_ID');
-?>
+	<?php
+	echo 'welcome -'.$this->session->userdata('USERNAME').' and you ID is.'.$this->session->userdata('STAFF_ID');
+	?>
 </div>
 </body>
 </html>

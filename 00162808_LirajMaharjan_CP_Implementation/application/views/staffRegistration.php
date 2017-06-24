@@ -57,9 +57,9 @@
 		</div>
 		<div class="form-group">
 		<label for="Gender">Gender:</label>
-		<input type="radio"  id="Gender" name="sGender" value="Male" required="required"/> Male
-		<input type="radio" id="Gender" name="sGender" value="Female" required="required"/> Female
-		<input type="radio" id="Gender" name="sGender" value="Others" required="required"/> Others
+		<input type="radio" class="radio-control" id="Gender" name="sGender" value="Male" required="required"/> Male
+		<input type="radio" class="radio-control" id="Gender" name="sGender" value="Female" required="required"/> Female
+		<input type="radio" class="radio-control" id="Gender" name="sGender" value="Others" required="required"/> Others
 		<div id="gender_error" class="val_error"></div>
 		</div>
 		<div class="form-group">

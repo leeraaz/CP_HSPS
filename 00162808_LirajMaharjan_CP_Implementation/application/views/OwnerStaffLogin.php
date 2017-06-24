@@ -61,6 +61,9 @@ li.dropdown {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+.val_error{
+	color:#E1F5FE;
+}
 </style>
 </head>
 <body>
@@ -90,21 +93,24 @@ li.dropdown {
 	</div>
 </div>
 <div id="Form">
-		<form action="<?php echo base_url();?>Staff/stfLogin" method="POST" >
+		<form action="<?php echo base_url();?>Staff/stfLogin" method="POST" onsubmit="return loginValid()" name="loginFrom" >
 			<font size="5px" color="white">
 				<font size="6px"><h2 align="center"> Owner & Staff Login </h2></font>
 				<div class="form-group">
 				<label for="username">Username:</label>
 				<input type="username" class="form-control" id="username" placeholder="Enter username" name="suser">
+				<div id="username_error" class="val_error"></div>
 				</div>
 				<div class="form-group">
 				<label for="pwd">Password:</label><br/>
 				<input type="password" class="form-control" id="pwd" placeholder="Enter password" name="spwd">
+				<div id="password_error" class="val_error"></div>
 				</div>
 				<div class="checkbox">
 				<label><input type="checkbox" name="remember"> Remember me</label><br/>
 				</div>
-				<button type="submit" style="margin-left:40%; width:15%;" class="btn btn-primary">Login</button></br>
+				<input type="reset" style="margin-left:33%;width:15%;" class="btn btn-danger" />
+				<button type="submit" class="btn btn-primary">Login</button></br>
 				<?php
 					echo  $this->session->flashdata("error");
 				?>
@@ -113,3 +119,48 @@ li.dropdown {
 </div>
 </body>
 </html>
+
+<script type="text/javascript">
+	//getting input value
+	var suser = document.forms["loginFrom"]["suser"];
+	var pwd = document.forms["loginFrom"]["pwd"];
+	
+	//getting all error display objects
+	var username_error = document.getElementById("username_error");
+	var password_error = document.getElementById("password_error");
+	
+	//setting all event listeners
+	suser.addEventListener("blur",usernameVerify,true);
+	pwd.addEventListener("blur",passwordVerify,true);
+	
+	function loginValid(){
+		if(suser.value == ""){
+			suser.style.border = "1px solid red";
+			username_error.textContent = "Username is required";
+			suser.focus();
+			return false;
+		}
+		   
+		if(pwd.value == ""){
+			pwd.style.border = "1px solid red";
+			password_error.textContent = "Password is required";
+			pwd.focus();
+			return false;
+		}
+	}
+	
+	function usernameVerify(){
+		if(suser.value !=""){
+			suser.style.border = "1px solid #5E6E66";
+			username_error.innerHTML = "";
+			return true;
+		}
+	}	
+	function passwordVerify(){
+		if(pwd.value !=""){
+			pwd.style.border = "1px solid #5E6E66";
+			password_error.innerHTML = "";
+			return true;
+		}
+	}	
+</script>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title> Update Staff </title>
+<title> Update Pipe and Fittings </title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="<?php echo base_url();?>assets/CSS/bootstrap.min.css" rel="stylesheet">
 <link href="<?php echo base_url();?>assets/CSS/design.css" rel="stylesheet">
@@ -33,62 +33,36 @@
 <div id="data">
 <div id="staffForm">
 <?php 
-	foreach($staff as $row){
+	foreach($supplier as $row){
 ?>
-<form action="<?php echo base_url();?>Staff/updateStaff" method="POST" onsubmit="return sValidate()" name="sForm">
-	<font size="5px" color="white">
-		<font size="6px"><b> Update Staff </b></font>
-		<div class="form-group">
-		<label for="ID">Staff Identity:</label>
-		<input type="combo" class="form-control" id="staffID" value="<?php echo $row->STAFF_ID; ?>" name="sID">
-		</div>
-		<div class="form-group">
-		<label for="FirstName">First Name:</label>
-		<input type="FirstName" class="form-control" id="FirstName" value="<?php echo $row->STAFF_FIRSTNAME; ?>" name="sName">
-		</div>
-		<div class="form-group">
-		<label for="LastName">Last Name:</label><br/>
-		<input type="LastName" class="form-control" id="LastName" value="<?php echo $row->STAFF_LASTNAME; ?>" name="sLName">
-		</div>
-		<div class="form-group">
-		<label for="StaffTypeID">Staff Type ID:</label><br/>
-		<input type="StaffTypeID" class="form-control" id="StaffTypeID" value="<?php echo $row->STAFF_TYPE_ID; ?>" name="sType">
-		</div>
-		<div class="form-group"> 
-		<label for="Address">Address:</label>
-		<input type="Address" class="form-control" id="Address" value="<?php echo $row->STAFF_ADDRESS; ?>" name="sAddress">
-		</div>
-		<div class="form-group">
-		<label for="Gender">Gender:</label>
-		<input type="radio"  id="Gender" name="sGender" value="Male" required="required"/> Male
-		<input type="radio" id="Gender" name="sGender" value="Female" required="required"/> Female
-		<input type="radio" id="Gender" name="sGender" value="Others" required="required"/> Others
-		</div>
-		<div class="form-group">
-		<label for="Contact">Contact Number:</label>
-		<input type="Contact" class="form-control" id="Contact" value="<?php echo $row->CONTACT; ?>" name="sContact">
-		</div>
-		<div class="form-group">
-		<label for="Email">Email:</label><br/>
-		<input type="Email" class="form-control" id="Email" value="<?php echo $row->EMAIL; ?>" name="sEmail">
-		<div id="email_error" class="val_error"></div>
-		</div>
-		<div class="form-group">
-		<label for="Username">Username:</label>
-		<input type="Username" class="form-control" id="Username" value="<?php echo $row->USERNAME; ?>" name="sUsername">
-		<div id="name_error" class="val_error"></div>
-		</div>
-		<div class="form-group">
-		<label for="Password">Password:</label>
-		<input type="Password" class="form-control" id="Password" value="<?php echo $row->PASSWORD;?>" name="sPassword">
-		</div>
-		<div class="form-group">
-		<label for="rPassword">Re-enter Password:</label><br/>
-		<input type="password" class="form-control" id="rPassword" value="<?php echo $row->PASSWORD; ?>" name="srPassword">
-		<div id="password_error" class="val_error"></div>
-		</div>
-		<button type="submit" style="margin-left:40%; width:15%;" class="btn btn-primary">Update</button>
-		<button type="reset" class="btn btn-primary"> Reset </button>
+  <h2>Pipe and Fittings form</h2>
+  <form action="<?php echo base_url();?>PipeAndFittings/info" method="POST">
+	<div class="form-group">
+      <label for="Image">Image:</label>
+      <input type="file" class="form-control" id="image" placeholder="Insert image" name="image">
+    </div>
+	 <div class="form-group">
+      <label for="Item Name">Item Name:</label>
+      <input type="Item Name" class="form-control" id="Item Name" placeholder="Enter Item Name" name="itemName">
+    </div>
+	 <div class="form-group">
+      <label for="Size">Size:</label>
+      <input type="Size" class="form-control" id="Size" placeholder="Enter Size" name="size">
+    </div>
+	 <div class="form-group">
+      <label for="Quantity">Quantity:</label>
+      <input type="Quantity" class="form-control" id="Quantity" placeholder="Enter Quantity" name="quantity">
+    </div>
+	 <div class="form-group">
+      <label for="Buying">Buying price:</label>
+      <input type="Buying" class="form-control" id="Buying" placeholder="Enter Buying" name="buying">
+    </div>
+	 <div class="form-group">
+      <label for="Selling">Selling price:</label>
+      <input type="Selling" class="form-control" id="Selling" placeholder="Enter Selling" name="selling">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+	<button type="reset" class="btn btn-primary"> Reset </button>
 <?php
 	}
 ?>
