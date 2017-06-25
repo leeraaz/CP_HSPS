@@ -92,6 +92,7 @@ li.dropdown {
 		</ul>
 	</div>
 </div>
+<hr/>
 <div id="Form">
 		<form action="<?php echo base_url();?>Staff/stfLogin" method="POST" onsubmit="return loginValid()" name="loginFrom" >
 			<font size="5px" color="white">

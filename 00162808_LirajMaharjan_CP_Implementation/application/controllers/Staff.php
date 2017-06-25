@@ -57,15 +57,19 @@ class Staff extends CI_Controller{
 		$this->load->model('OwnerModel');
 		$data['customers'] = $this->OwnerModel->customerList();
 		$this->load->view('updateSupplier',$data);
-		}
+	}
 		
 	public function getStaff(){
-			$this->load->model('OwnerModel');
-			$dataStaff['staff'] = $this->OwnerModel->staffList();
-			$this->load->view('editStaff',$dataStaff);
-		}
+		$this->load->model('OwnerModel');
+		$dataStaff['staff'] = $this->OwnerModel->staffList();
+		$this->load->view('editStaff',$dataStaff);
+	}
 	
 	public function updateStaff(){
+		$this->load->model('OwnerModel');
+		$dataStaff['staff'] = $this->OwnerModel->staffList();
+		$this->load->view('updateStaff',$dataStaff);
+	
 		$sID=$this->input->POST("sID");
 		$sName=$this->input->POST("sName");
 		$sLName=$this->input->POST("sLName");
@@ -89,8 +93,17 @@ class Staff extends CI_Controller{
 		}
 	}
 	
+	public function orderView(){
+		$this->load->view("orderView.php");
+	}
+	
+	public function prepareBill(){
+		$this->load->view("prepareBill.php");
+	}
+	
 	public function logout(){
 		$this->session->unset_userdata('username');
+		$this->session->unset_userdata('STAFF_ID');
 		redirect(base_url().'owner/ownerLogin'); 
 	}
 	

@@ -19,15 +19,14 @@
 </div>
 <div id="sidebar">
 	<ul>
-		<li> <a href="" >Add Supplier </a></li>
-		<li> <a href="" >Add Pipe and Fittings </a></li>
+		<li> <a href="<?php echo base_url();?>owner/supplier" >Add Supplier </a></li>
+		<li> <a href="<?php echo base_url();?>owner/pipefitting" >Add Pipe and Fittings </a></li>
 		<li> <a href="<?php echo base_url();?>owner/staffRegister" >Add Staff</a></li>
-		<li> <a href="<?php echo base_url();?>Staff/getCustomer" >Update Supplier </a></li>
-		<li> <a href="" >Update Pipe and Fittings </a></li>
-		<li> <a href="" >Update Staff</a></li>
-		<li> <a href="" >Delete Supplier </a></li>
-		<li> <a href="" >Delete Pipe and Fittings </a></li>
-		<li> <a href="" >Delete Staff</a></li>
+		<li> <a href="<?php echo base_url();?>Staff/getCustomer" >Edit Customer </a></li>
+		<li> <a href="<?php echo base_url();?>supplier/getSupplier" >Update Supplier </a></li>
+		<li> <a href="" >Edit Pipe and Fittings </a></li>
+		<li> <a href="<?php echo base_url();?>Staff/getStaff" >Edit Staff</a></li>
+		<li> <a href="<?php echo base_url();?>Staff/logout" >Logout </a></li>
 	</ul>
 </div>
 <div id="data">
@@ -35,40 +34,39 @@
 <?php 
 	foreach($supplier as $row){
 ?>
-<form action="<?php echo base_url();?>Staff/updateStaff" method="POST" onsubmit="return sValidate()" name="sForm">
+<form action="<?php echo base_url();?>Owner/updateSupplier" method="POST" onsubmit="return sValidate()" name="sForm">
 	<font size="5px" color="white">
 		<font size="6px"><b> Update Supplier </b></font>
 		<div class="form-group">
 		<label for="ID">Supplier Identity:</label>
-		<input type="combo" class="form-control" id="staffID" value="<?php echo $row->STAFF_ID; ?>" name="suppID">
+		<input type="combo" class="form-control" id="staffID" value="<?php echo $row->SUPPLIER_ID; ?>" name="suppID">
 		</div>
 		<div class="form-group">
 		<label for="Company">Company Name:</label>
-		<input type="Company" class="form-control" id="Company" value="<?php echo $row->STAFF_FIRSTNAME; ?>" name="suppName">
+		<input type="Company" class="form-control" id="Company" value="<?php echo $row->COMPANY_NAME; ?>" name="suppName">
 		</div>
 		<div class="form-group">
 		<label for="Address">Address:</label><br/>
-		<input type="Address" class="form-control" id="Address" value="<?php echo $row->STAFF_LASTNAME; ?>" name="suppAddress">
+		<input type="Address" class="form-control" id="Address" value="<?php echo $row->ADDRESS; ?>" name="suppAddress">
 		</div>
 		<div class="form-group">
 		<label for="Contact">Contact:</label><br/>
-		<input type="Contact" class="form-control" id="Contact" value="<?php echo $row->STAFF_TYPE_ID; ?>" name="suppContact">
+		<input type="Contact" class="form-control" id="Contact" value="<?php echo $row->CONTACT; ?>" name="suppContact">
 		</div>
 		<div class="form-group">
 		<label for="Email">Email:</label><br/>
 		<input type="Email" class="form-control" id="Email" value="<?php echo $row->EMAIL; ?>" name="suppEmail">
 		<div id="email_error" class="val_error"></div>
 		</div>
-		</div>
 		<button type="submit" style="margin-left:40%; width:15%;" class="btn btn-primary">Update</button>
 		<button type="reset" class="btn btn-primary"> Reset </button>
+	</font>
+</form>
+</div>
+</div>
 <?php
 	}
 ?>
-	</font>
-	</form>
-</div>
-</div>
 </body>
 </html>
 <script type="text/javascript">

@@ -7,22 +7,27 @@
 <body>
 <div id="header">
 	<center>
-	<img id="adminlogo" src="<?php echo base_url();?>assets/Images/owner.png" alt="adminlogo"></br>
+	<img id="adminlogo" src="<?php echo base_url();?>assets/Images/staff.png" alt="adminlogo"></br>
 	STAFF PANNEL
 	</center>
 </div>
 <div id="sidebar">
 	<ul>
 		<li> <a href="<?php echo base_url();?>staff/updateStaff" >Update Profile </a></li>
-		<li> <a href="" >View Order</a> </li>
-		<li> <a href="" >Prepare bill</a> </li>
+		<li> <a href="<?php echo base_url();?>staff/orderView" >View Order</a> </li>
+		<li> <a href="<?php echo base_url();?>staff/prepareBIll" >Prepare bill</a> </li>
 		<li> <a href="<?php echo base_url();?>Staff/logout" >Logout </a></li>
 	</ul>
 </div>
 <div id="data">
-	<?php
-	echo 'welcome -'.$this->session->userdata('USERNAME').' and you ID is.'.$this->session->userdata('STAFF_ID');
-	?>
+<h3>
+<marquee>
+<font size="18px" color="white">
+<?php
+	echo 'welcome - '.$this->session->userdata('USERNAME').' and your staff ID is.'.$this->session->userdata('STAFF_ID');
+?>
+</font>
+</marquee>
 </div>
 </body>
 </html>

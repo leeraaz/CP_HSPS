@@ -11,10 +11,6 @@ class Owner extends CI_Controller{
 		$this->load->view("customerRegistration.php");//load refers to view
 	}
 	
-	public function customerPage(){
-		$this->load->view("customerPage.php");
-	}
-	
 	public function gallery(){
 		$this->load->view("gallery.php");
 	}
@@ -50,5 +46,7 @@ class Owner extends CI_Controller{
 	public function updateStaff(){
 		$this->load->view('updateStaff.php');
 	}
+	
+	
 }
 ?>

@@ -30,20 +30,32 @@ class Customer extends CI_Controller{
 		$this->load->model("customerRegister");
 		$cLogin=$this->customerRegister->custLogin($cUsername,$cPassword);
 		if($cLogin){
-			$this->session->set_userdata('CUSTOMER_ID',$clogin);
-			$this->session->set_userdata('USERNAME',$clogin);
+			$this->session->set_userdata('CUSTOMER_ID',$cLogin);
+			$this->session->set_userdata('USERNAME',$cUsername);
 			return redirect('owner/customerPanel');
-				 	//echo "login";
 		}
 		else{
-
-			echo " not login";
+				$this->session->set_flashdata('error','Invalid Username or Password');
+				redirect(base_url(). 'owner/cusLogin');
 		}
 	}
 	
-	public function cusLogout(){
-		$this_session->session->destroy();
-		redirect ('owner/cuslogin');
+	public function updateInfo(){
+		$this->load->view("updateCustomer.php");
 	}
+	
+	public function viewItems(){
+		$this->load->view("viewPipe&fittings.php");
+	}
+	
+	public function order(){
+		$this->load->view("customerOrderPage.php");
+	}
+	public function cusLogout(){
+		$this->session->unset_userdata('CUSTOMER');
+		$this->session->unset_userdata('CUSTOMER_ID');
+		redirect(base_url(). 'owner/cusLogin');
+	}
+	
 }	
 ?>

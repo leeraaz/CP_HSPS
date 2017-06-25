@@ -25,7 +25,12 @@
 				return false;
 			}
 		}
-
+		public function getDetail(){
+			$sql=$this->db->get('staff');
+			return $sql->result();
+		}
+		
+		
 		public function staffList($sID,$sName,$sLName,$sType,$sAddress,$sGender,$sContact,$sEmail,$sUsername,$sPassword){
 			$array=array(
 				"STAFF_ID" => $sID,
@@ -39,7 +44,7 @@
 				"USERNAME" => $sUsername,
 				"PASSWORD" => $sPassword
 				);
-				$this->db->get("staff");
+				$this->db->where("STAFF_ID",$sID);
 				$this->db->update("staff",$array);
 				return "Data has been updated";
 			}

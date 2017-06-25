@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title> Staff Registration</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="<?php echo base_url();?>assets/CSS/bootstrap.min.css" rel="stylesheet">
-<link href="<?php echo base_url();?>assets/CSS/design.css" rel="stylesheet">
+	<title> Supplier Form </title>
+	<link href="<?php echo base_url();?>assets/CSS/design.css" rel="stylesheet" content="text/css" />
+	<link href="<?php echo base_url();?>assets/CSS/bootstrap.min.css" rel="stylesheet" content="text/css" />
 <style>
 .val_error{
 	color:#FF1F1F;
@@ -14,20 +13,22 @@
 <body>
 <div id="header">
 	<center><img id="adminlogo" src="<?php echo base_url();?>assets/Images/owner.png" alt="adminlogo"><br>
-	this is admin panel.
+	This is admin panel.<br/>
+	<?php
+	echo 'welcome -'.$this->session->userdata('USERNAME').' and you ID is.'.$this->session->userdata('STAFF_ID');
+	?>
 	</center>
 </div>
 <div id="sidebar">
 	<ul>
-		<li> <a href="" >Add Supplier </a></li>
-		<li> <a href="" >Add Pipe and Fittings </a></li>
+		<li> <a href="<?php echo base_url();?>owner/supplier" >Add Supplier </a></li>
+		<li> <a href="<?php echo base_url();?>owner/pipefitting" >Add Pipe and Fittings </a></li>
 		<li> <a href="<?php echo base_url();?>owner/staffRegister" >Add Staff</a></li>
-		<li> <a href="<?php echo base_url();?>Staff/getCustomer" >Update Supplier </a></li>
-		<li> <a href="" >Update Pipe and Fittings </a></li>
-		<li> <a href="" >Update Staff</a></li>
-		<li> <a href="" >Delete Supplier </a></li>
-		<li> <a href="" >Delete Pipe and Fittings </a></li>
-		<li> <a href="" >Delete Staff</a></li>
+		<li> <a href="<?php echo base_url();?>Staff/getCustomer" >Edit Customer </a></li>
+		<li> <a href="<?php echo base_url();?>supplier/getSupplier" >Update Supplier </a></li>
+		<li> <a href="" >Edit Pipe and Fittings </a></li>
+		<li> <a href="<?php echo base_url();?>Staff/getStaff" >Edit Staff</a></li>
+		<li> <a href="<?php echo base_url();?>Staff/logout" >Logout </a></li>
 	</ul>
 </div>
 <div id="data">
@@ -37,22 +38,22 @@
 		<center><font size="6px"><b> Staff Registration </b></font></center>
 		<div class="form-group">
 		<label for="FirstName">First Name:</label>
-		<input type="FirstName" class="form-control" id="FirstName" placeholder="Enter First Name" name="sName">
+		<input type="FirstName" class="form-control" id="FirstName" placeholder="Enter your first name" name="sName">
 		<div id="sname_error" class="val_error"></div>
 		</div>
 		<div class="form-group">
 		<label for="LastName">Last Name:</label><br/>
-		<input type="LastName" class="form-control" id="LastName" placeholder="Enter First Name" name="sLName">
+		<input type="LastName" class="form-control" id="LastName" placeholder="Enter your last name" name="sLName">
 		<div id="slname_error" class="val_error"></div>
 		</div>
 		<div class="form-group">
 		<label for="StaffTypeID">Staff Type ID:</label><br/>
-		<input type="StaffTypeID" class="form-control" id="StaffTypeID" placeholder="Enter StaffTypeID" value="2" name="sType">
+		<input type="StaffTypeID" class="form-control" id="StaffTypeID" placeholder="Enter staff type ID" value="2" name="sType">
 		<div id="stype_error" class="val_error"></div>
 		</div>
 		<div class="form-group"> 
 		<label for="Address">Address:</label>
-		<input type="Address" class="form-control" id="Address" placeholder="Enter Address" name="sAddress">
+		<input type="Address" class="form-control" id="Address" placeholder="Enter address" name="sAddress">
 		<div id="address_error" class="val_error"></div>
 		</div>
 		<div class="form-group">
@@ -64,27 +65,27 @@
 		</div>
 		<div class="form-group">
 		<label for="Contact">Contact Number:</label>
-		<input type="Contact" class="form-control" id="Contact" placeholder="Enter Contact Number" name="sContact">
+		<input type="Contact" class="form-control" id="Contact" placeholder="Enter telephpone or mobile number" name="sContact">
 		<div id="contact_error" class="val_error"></div>
 		</div>
 		<div class="form-group">
 		<label for="Email">Email:</label><br/>
-		<input type="Email" class="form-control" id="Email" placeholder="Enter Email" name="sEmail">
+		<input type="Email" class="form-control" id="Email" placeholder="Enter email" name="sEmail">
 		<div id="email_error" class="val_error"></div>
 		</div>
 		<div class="form-group">
 		<label for="Username">Username:</label>
-		<input type="Username" class="form-control" id="Username" placeholder="Enter Username" name="sUsername">
+		<input type="Username" class="form-control" id="Username" placeholder="Enter username" name="sUsername">
 		<div id="name_error" class="val_error"></div>
 		</div>
 		<div class="form-group">
 		<label for="Password">Password:</label>
-		<input type="Password" class="form-control" id="Password" placeholder="Enter Password" name="sPassword">
+		<input type="Password" class="form-control" id="Password" placeholder="Enter password" name="sPassword">
 		<div id="password_error" class="val_error"></div>
 		</div>
 		<div class="form-group">
 		<label for="rPassword">Re-enter Password:</label><br/>
-		<input type="password" class="form-control" id="rPassword" placeholder="Enter password" name="srPassword">
+		<input type="password" class="form-control" id="rPassword" placeholder="Configuration password" name="srPassword">
 		<div id="comPassword_error" class="val_error"></div>
 		</div>
 		<input type="reset" style="margin-left:40%; width:15%;" class="btn btn-primary" />

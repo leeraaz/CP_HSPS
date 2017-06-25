@@ -9,5 +9,10 @@
 			$sql=$this->db->get('staff');
 			return $sql->result();
 		}
+		
+		public function staffData(){
+			$sql=$this->db->where('staff');
+			return $sql->result();
+		}
 }
 ?>

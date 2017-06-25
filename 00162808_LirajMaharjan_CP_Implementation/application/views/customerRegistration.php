@@ -92,6 +92,7 @@ li.dropdown {
 		</ul>
 	</div>
 </div>
+<hr/>
 <div id="Form">
 <form action="<?php echo base_url();?>Customer/saveCusData" method="POST" onsubmit="return validate()" name="form">
 	<font size="5px" color="white">

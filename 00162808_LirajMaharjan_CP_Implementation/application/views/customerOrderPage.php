@@ -6,18 +6,16 @@
 </head>
 <body>
 <div id="header">
-	<center><img id="adminlogo" src="<?php echo base_url();?>assets/Images/owner.png" alt="adminlogo"><br>
+	<center><img id="adminlogo" src="<?php echo base_url();?>assets/Images/customer.png" alt="adminlogo"><br>
 	Customer PANEL.
 	</center>
 </div>
 <div id="sidebar">
-	<ul><li>
-		<a href="" target="_blank" style="color:white; text-decoration:none;">
-		 View items</a> </li>
-		<li> Place Order </li>
-		<li> Prepare bill </li>
-		<li> Update profile </li>
-		<li><a href="<?php echo base_url();?> Customer/cusLogout"> Logout </a></li>
+	<ul>
+		<li><a href="<?php echo base_url();?>customer/viewItems"> View items </a> </li>
+		<li><a href="<?php echo base_url();?>customer/order"> Place Order </a></li>
+		<li><a href="<?php echo base_url();?>customer/updateInfo"> Update profile </a> </li>
+		<li><a href="<?php echo base_url();?>customer/cusLogout"> Logout </a></li>
 	</ul>
 </div>
 <div id="data">

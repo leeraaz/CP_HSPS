@@ -14,20 +14,15 @@
 <body>
 <div id="header">
 	<center><img id="adminlogo" src="<?php echo base_url();?>assets/Images/owner.png" alt="adminlogo"><br>
-	this is admin panel.
+	this is Staff panel.
 	</center>
 </div>
 <div id="sidebar">
 	<ul>
-		<li> <a href="" >Add Supplier </a></li>
-		<li> <a href="" >Add Pipe and Fittings </a></li>
-		<li> <a href="<?php echo base_url();?>owner/staffRegister" >Add Staff</a></li>
-		<li> <a href="<?php echo base_url();?>Staff/getCustomer" >Update Supplier </a></li>
-		<li> <a href="" >Update Pipe and Fittings </a></li>
-		<li> <a href="" >Update Staff</a></li>
-		<li> <a href="" >Delete Supplier </a></li>
-		<li> <a href="" >Delete Pipe and Fittings </a></li>
-		<li> <a href="" >Delete Staff</a></li>
+		<li> <a href="<?php echo base_url();?>staff/updateStaff" >Update Profile </a></li>
+		<li> <a href="<?php echo base_url();?>staff/orderView" >View Order</a> </li>
+		<li> <a href="<?php echo base_url();?>staff/prepareBIll" >Prepare bill</a> </li>
+		<li> <a href="<?php echo base_url();?>Staff/logout" >Logout </a></li>
 	</ul>
 </div>
 <div id="data">
@@ -40,7 +35,7 @@
 		<font size="6px"><b> Update Staff </b></font>
 		<div class="form-group">
 		<label for="ID">Staff Identity:</label>
-		<input type="combo" class="form-control" id="staffID" value="<?php echo $row->STAFF_ID; ?>" name="sID">
+		<input type="combobox" class="from-control" id="staffID" value="<?php echo $row->STAFF_ID; ?>" name="sID">
 		</div>
 		<div class="form-group">
 		<label for="FirstName">First Name:</label>
@@ -60,9 +55,9 @@
 		</div>
 		<div class="form-group">
 		<label for="Gender">Gender:</label>
-		<input type="radio"  id="Gender" name="sGender" value="Male" required="required"/> Male
-		<input type="radio" id="Gender" name="sGender" value="Female" required="required"/> Female
-		<input type="radio" id="Gender" name="sGender" value="Others" required="required"/> Others
+		<input type="radio"  id="Gender" name="sGender" value="<?php echo $row->GENDER; ?>" required="required"/> Male
+		<input type="radio" id="Gender" name="sGender" value="<?php echo $row->GENDER; ?>" required="required"/> Female
+		<input type="radio" id="Gender" name="sGender" value="<?php echo $row->GENDER; ?>" required="required"/> Others
 		</div>
 		<div class="form-group">
 		<label for="Contact">Contact Number:</label>

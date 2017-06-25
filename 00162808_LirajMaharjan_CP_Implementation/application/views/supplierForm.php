@@ -4,43 +4,64 @@
 	<title> Supplier Form </title>
 	<link href="<?php echo base_url();?>assets/CSS/design.css" rel="stylesheet" content="text/css" />
 	<link href="<?php echo base_url();?>assets/CSS/bootstrap.min.css" rel="stylesheet" content="text/css" />
-</head>
 <style>
 .val_error{
 	color:#FF1F1F;
 }
 </style>
+</head>
 <body>
-	<div id="Form">
-<form action="" method="POST" onsubmit="return supValidate()" name="supForm">
-	<font size="5px" color="white">
-		<center><font size="6px"><b> Supplier Registration </b></font></center>
-		<div class="form-group">
-		<label for="Company">Company Name:</label>
-		<input type="Company" class="form-control" id="Company" placeholder="Enter Company Name" name="supName">
-		<div id="name_error" class="val_error"></div>
-		</div>
-		<div class="form-group">
-		<label for="Address">Address:</label>
-		<input type="Address" class="form-control" id="Address" placeholder="Enter Address" name="supAddress">
-		<div id="address_error" class="val_error"></div>
-		</div>
-		<div class="form-group">
-		<label for="Contact">Contact Number:</label>
-		<input type="Contact" class="form-control" id="Contact" placeholder="Enter Contact Number" name="supContact">
-		<div id="contact_error" class="val_error"></div>
-		</div>
-		<div class="form-group">
-		<label for="Email">Email:</label><br/>
-		<input type="Email" class="form-control" id="Email" placeholder="Enter Email" name="supEmail">
-		<div id="email_error" class="val_error"></div>
-		<button type="submit" style="margin-left:40%; width:15%;" class="btn btn-primary">Register</button><br/>
-		<?php
-			if(isset($msg)) echo $msg;
-		?>
-	</font>
-	</form>
+<div id="header">
+	<center><img id="adminlogo" src="<?php echo base_url();?>assets/Images/owner.png" alt="adminlogo"><br>
+	this is admin panel.<br/>
+	<?php
+	echo 'welcome -'.$this->session->userdata('USERNAME').' and you ID is.'.$this->session->userdata('STAFF_ID');
+	?>
+	</center>
 </div>
+<div id="sidebar">
+	<ul>
+		<li> <a href="<?php echo base_url();?>owner/supplier" >Add Supplier </a></li>
+		<li> <a href="<?php echo base_url();?>owner/pipefitting" >Add Pipe and Fittings </a></li>
+		<li> <a href="<?php echo base_url();?>owner/staffRegister" >Add Staff</a></li>
+		<li> <a href="<?php echo base_url();?>Staff/getCustomer" >Edit Customer </a></li>
+		<li> <a href="<?php echo base_url();?>supplier/getSupplier" >Update Supplier </a></li>
+		<li> <a href="" >Edit Pipe and Fittings </a></li>
+		<li> <a href="<?php echo base_url();?>Staff/getStaff" >Edit Staff</a></li>
+		<li> <a href="<?php echo base_url();?>Staff/logout" >Logout </a></li>
+	</ul>
+</div>
+<div id="data">
+	<br/>
+	<div id="supplierForm">
+		<form action="<?php echo base_url();?>Supplier/add" method="POST" onsubmit="return supValidate()" name="supForm">
+			<font size="5px" color="white">
+			<center><font size="6px"><b> Supplier Registration </b></font></center>
+			<div class="form-group">
+			<label for="Company">Company Name:</label>
+			<input type="Company" class="form-control" id="Company" placeholder="Enter Company Name" name="supName">
+			<div id="name_error" class="val_error"></div>
+			</div>
+			<div class="form-group">
+			<label for="Address">Address:</label>
+			<input type="Address" class="form-control" id="Address" placeholder="Enter Address" name="supAddress">
+			<div id="address_error" class="val_error"></div>
+			</div>
+			<div class="form-group">
+			<label for="Contact">Contact Number:</label>
+			<input type="Contact" class="form-control" id="Contact" placeholder="Enter Contact Number" name="supContact">
+			<div id="contact_error" class="val_error"></div>
+			</div>
+			<div class="form-group">
+			<label for="Email">Email:</label><br/>
+			<input type="Email" class="form-control" id="Email" placeholder="Enter Email" name="supEmail">
+			<div id="email_error" class="val_error"></div>
+			</div>
+			<input type="reset" style="margin-left:35%; width:15%;" class="btn btn-info" />
+			<button type="submit" style="width:15%;" class="btn btn-primary">Save</button><br/>
+			</font>
+		</form>
+	</div>
 </body>
 </html>
 <script type="text/javascript">

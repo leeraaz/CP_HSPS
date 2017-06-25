@@ -92,6 +92,7 @@ li.dropdown {
 		</ul> 
 	</div>	
 </div>
+<hr/>			
 <div id="Form">
 		<form action="<?php echo base_url();?>Customer/cusLogin" method="POST" onsubmit="return loginValid()" name="loginFrom">
 			<font size="5px" color="white">
@@ -113,7 +114,9 @@ li.dropdown {
 				<button type="submit" class="btn btn-primary">Login</button><br/>
 				If you are new then, first get registered.
 				<a href="<?php echo base_url();?>owner/cusRegistration	"> Here </a>
-				
+				<?php
+					echo  $this->session->flashdata("error");
+				?>
 			</font>
 		</form>
 	</div>
