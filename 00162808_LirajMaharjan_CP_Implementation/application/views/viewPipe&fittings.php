@@ -15,7 +15,7 @@
 	<ul>
 		<li><a href=""> View items </a> </li>
 		<li><a href="<?php echo base_url();?>customer/order"> Place Order </a></li>
-		<li><a href="<?php echo base_url();?>customer/updateInfo"> Update profile </a> </li>
+		<li><a href="<?php echo base_url();?>customer/updateCustomer"> Update profile </a> </li>
 		<li><a href="<?php echo base_url();?>Customer/cusLogout"> Logout </a></li>
 	</ul>
 </div>

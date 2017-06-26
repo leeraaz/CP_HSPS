@@ -19,9 +19,10 @@ class Supplier extends CI_Controller{
 	}
 	
 	public function getSupplier(){
-		$this->load->model('Supplier_Model');
-		$dataSupplier['supplier'] = $this->Supplier_Model->getIt();
-		$this->load->view('updateSupplier',$dataSupplier);
+		// $this->load->model('Supplier_Model');
+		// $dataSupplier['supplier'] = $this->Supplier_Model->getIt();
+		// $this->load->view('updateSupplier',$dataSupplier);
+		$this->load->view('updatSup');
 	}
 	
 	

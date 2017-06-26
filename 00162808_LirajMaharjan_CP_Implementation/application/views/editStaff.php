@@ -36,7 +36,6 @@
 	<th> Contact</th>
 	<th> Email </th>
 	<th> Username </th>
-	<th> Password </th>
 	<th> Delete </th>
 </tr>
 <?PHP
@@ -45,7 +44,7 @@
 	 foreach ($staff as $row)
 { ?>
 <tr>
-    <td> <?php echo $row->STAFF_ID; ?> </td>
+    <td><center> <?php echo $row->STAFF_ID; ?></center> </td>
 	<td> <?php echo $row->STAFF_FIRSTNAME; ?> </td>
 	<td> <?php echo $row->STAFF_LASTNAME; ?> </td>
 	<td> <?php echo $row->STAFF_TYPE_ID; ?> </td>
@@ -54,8 +53,7 @@
 	<td> <?php echo $row->CONTACT; ?> </td>
 	<td> <?php echo $row->EMAIL; ?> </td>
 	<td> <?php echo $row->USERNAME; ?> </td>
-	<td> <?php echo $row->PASSWORD; ?> </td>
-	<td> <a href="">Delete</a> </td>
+	<td> <?php echo anchor("owner/delStaff/{$row->STAFF_ID}", 'Delete' ,['class'=>"btn btn-danger"]);?> </td>
 </tr>
 			<?php
  }

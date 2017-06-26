@@ -48,5 +48,30 @@ class Owner extends CI_Controller{
 	}
 	
 	
+	
+	public function findUpdateSupplier(){
+		$SUPPLIER_ID=$this->input->post('suppID');
+		$this->load->model('Supplier_Model');
+		$dataSupplier['supplier'] = $this->Supplier_Model->findSupplier($SUPPLIER_ID);
+		$this->load->view('updateSupplier',$dataSupplier);
+	}
+	
+	public function deleteCustomer(){
+		$CUSTOMER_ID=$this->input->post('customer_ID');
+		$this->load->model('customerRegister');
+		$dataSupplier['supplier'] = $this->customerRegister->deleteCustomer($CUSTOMER_ID);
+		//$this->load->view('updateSupplier',$dataSupplier);
+		echo "deleted";
+	}
+	
+	public function delStaff($IDstaff){
+		$this->load->model('OwnerModel');
+		$staffDel['staff'] = $this->OwnerModel->deleteStaff($IDstaff);
+		//$this->load->view('updateSupplier',$dataSupplier);
+		//echo "deleted";
+		redirect ('Staff/getStaff');
+	}
+	
+	
 }
 ?>

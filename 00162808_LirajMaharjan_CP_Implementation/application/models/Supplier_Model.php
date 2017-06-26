@@ -15,6 +15,12 @@
 			return $sql->result();
 		}
 		
+		public function findSupplier($SUPPLIER_ID){
+			$this->db->where('SUPPLIER_ID',$SUPPLIER_ID);
+			$sql=$this->db->get('supplier');
+			return $sql->result();
+		}
+		
 		public function stLogin($sUsername,$sPassword){
 			$sql=$this->db->where(['USERNAME'=>$sUsername,'PASSWORD'=>$sPassword])->get('staff');
 			if($sql->num_rows()>=0){

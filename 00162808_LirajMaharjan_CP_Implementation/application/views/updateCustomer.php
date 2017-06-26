@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Customer Panel</title>
+	<title> Update Customer</title>
 	<link content="text/css" href="<?php echo base_url();?>assets/CSS/design.css" rel="stylesheet" /> 
 	<link href="<?php echo base_url();?>assets/CSS/bootstrap.min.css" rel="stylesheet" content="text/css" />
 </head>
@@ -15,60 +15,84 @@
 	<ul>
 		<li><a href="<?php echo base_url();?>customer/viewItems"> View items </a> </li>
 		<li><a href="<?php echo base_url();?>customer/order"> Place Order </a></li>
-		<li><a href="<?php echo base_url();?>customer/updateInfo"> Update profile </a> </li>
+		<li><a href="<?php echo base_url();?>customer/updateCustomer"> Update profile </a> </li>
 		<li><a href="<?php echo base_url();?>Customer/cusLogout"> Logout </a></li>
 	</ul>
 </div>
 <div id="data">
 <h3>hello everyone</h3>
 <div id="customerForm">
-<form action="<?php echo base_url();?>Customer/saveCusData" method="POST" onsubmit="return validate()" name="form">
+<?php
+	foreach($record as $row){
+?>
+<form action="<?php echo base_url();?>Customer/updateCustomer" method="POST" onsubmit="return validate()" name="form">
 	<font size="5px" color="white">
 		<center><font size="6px"><b> Customer Registration </b></font></center>
 		<div class="form-group">
+		<label for="cID">Customer ID:</label>
+		<input type="cID" class="form-control" id="cID" value="<?php echo $row->CUSTOMER_ID?>" placeholder="Enter First Name" name="cID">
+		<div id="cname_error" class="val_error"></div>
+		</div>
+		<div class="form-group">
 		<label for="FirstName">First Name:</label>
-		<input type="FirstName" class="form-control" id="FirstName" placeholder="Enter First Name" name="cName">
+		<input type="FirstName" class="form-control" id="FirstName" value="<?php echo $row->CUSTOMER_FIRSTNAME?>" placeholder="Enter First Name" name="cName">
 		<div id="cname_error" class="val_error"></div>
 		</div>
 		<div class="form-group">
 		<label for="LastName">Last Name:</label><br/>
-		<input type="LastName" class="form-control" id="LastName" placeholder="Enter First Name" name="cLName">
+		<input type="LastName" class="form-control" id="LastName" value="<?php echo $row->CUSTOMER_LASTNAME?>" placeholder="Enter First Name" name="cLName">
 		<div id="lname_error" class="val_error"></div>
 		</div>
 		<div class="form-group">
 		<label for="Address">Address:</label>
-		<input type="Address" class="form-control" id="Address" placeholder="Enter Address" name="cAddress">
+		<input type="Address" class="form-control" id="Address" value="<?php echo $row->CUSTOMER_ADDRESS?>"placeholder="Enter Address" name="cAddress">
 		<div id="address_error" class="val_error"></div>
 		</div>
 		<div class="form-group">
 		<label for="Gender">Gender:</label>
-		<input type="radio" class="radio-control" id="Gender" name="cGender" value="Male" required="required"/> Male
+		<?php   $gender= $row->GENDER;
+			if($gender=='Male'){
+				?>
+			<input type="radio" class="radio-control" id="Gender" name="cGender" value="Male" required="required" checked="checked"/> Male
 		<input type="radio" class="radio-control" id="Gender" name="cGender" value="Female" required="required"/> Female
 		<input type="radio" class="radio-control" id="Gender" name="cGender" value="Others" required="required"/> Others
+		<?php	} else if($gender == 'Female'){
+		?>
+		<input type="radio" class="radio-control" id="Gender" name="cGender" value="Male" required="required" /> Male
+		<input type="radio" class="radio-control" id="Gender" name="cGender" value="Female" required="required" checked="checked"/> Female
+		<input type="radio" class="radio-control" id="Gender" name="cGender" value="Others" required="required"/> Others
+		<?php
+		}	else{		?>
+		<input type="radio" class="radio-control" id="Gender" name="cGender" value="Male" required="required" /> Male
+		<input type="radio" class="radio-control" id="Gender" name="cGender" value="Female" required="required" /> Female
+		<input type="radio" class="radio-control" id="Gender" name="cGender" value="Others" required="required" checked="checked"/> Others
+		<?php
+		}
+		?>
 		</div>
 		<div class="form-group">
 		<label for="Contact">Contact Number:</label>
-		<input type="Contact" class="form-control" id="Contact" placeholder="Enter Contact Number" name="cContact">
+		<input type="Contact" class="form-control" id="Contact" value="<?php echo $row->CONTACT?>" placeholder="Enter Contact Number" name="cContact">
 		<div id="contact_error" class="val_error"></div>
 		</div>
 		<div class="form-group">
 		<label for="Email">Email:</label><br/>
-		<input type="Email" class="form-control" id="Email" placeholder="Enter Email" name="cEmail">
+		<input type="Email" class="form-control" id="Email" value="<?php echo $row->EMAIL?>" placeholder="Enter Email" name="cEmail">
 		<div id="email_error" class="val_error"></div>
 		</div>
 		<div class="form-group">
 		<label for="Username">Username:</label>
-		<input type="Username" class="form-control" id="Username" placeholder="Enter Username" name="cUsername">
+		<input type="Username" class="form-control" id="Username" value="<?php echo $row->USERNAME?>" placeholder="Enter Username" name="cUsername">
 		<div id="username_error" class="val_error"></div>
 		</div>
 		<div class="form-group">
 		<label for="Password">Password:</label>
-		<input type="Password" class="form-control" id="Password" placeholder="Enter Password" name="cPassword">
+		<input type="Password" class="form-control" id="Password" value="<?php echo $row->PASSWORD?>" placeholder="Enter Password" name="cPassword">
 		<div id="password_error" class="val_error"></div>
 		</div>
 		<div class="form-group">
 		<label for="rPassword">Re-enter Password:</label><br/>
-		<input type="password" class="form-control" id="rPassword" placeholder="Enter configuration password" name="crPassword">
+		<input type="password" class="form-control" id="rPassword" value="<?php echo $row->PASSWORD?>" placeholder="Enter configuration password" name="crPassword">
 		<div id="comPassword_error" class="val_error"></div>
 		</div>
 		<input type="reset" style="margin-left:35%; width:15%;" class="btn btn-info">
@@ -78,7 +102,10 @@
 		?>
 	</font>
 	</form>
-	</div>
+<?php
+	}
+?>
+</div>
 </div>
 </body>
 </html>

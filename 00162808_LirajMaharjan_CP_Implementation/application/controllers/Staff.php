@@ -35,7 +35,7 @@ class Staff extends CI_Controller{
 			
 			$login=$this->staffRegister->stLogin($username,$password);
 			if($login){
-				if($login==1){
+				if($login==1 || $login==2){
 					$this->session->set_userdata('STAFF_ID',$login);
 					$this->session->set_userdata('USERNAME',$username);
 					return redirect('owner/ownerPanel');
@@ -44,6 +44,7 @@ class Staff extends CI_Controller{
 					$this->session->set_userdata('STAFF_ID',$login);
 					$this->session->set_userdata('USERNAME',$username);
 					redirect(base_url(). 'owner/staffPanel');
+
 				}
 			}
 			else{
@@ -55,21 +56,25 @@ class Staff extends CI_Controller{
 			
 	public function getCustomer(){
 		$this->load->model('OwnerModel');
-		$data['customers'] = $this->OwnerModel->customerList();
-		$this->load->view('updateSupplier',$data);
+		$data['customers'] = $this->OwnerModel->customerSearch();
+		$this->load->view('editCustomer',$data);
 	}
 		
 	public function getStaff(){
 		$this->load->model('OwnerModel');
-		$dataStaff['staff'] = $this->OwnerModel->staffList();
+		$dataStaff['staff'] = $this->OwnerModel->staffListOwner();
 		$this->load->view('editStaff',$dataStaff);
 	}
 	
-	public function updateStaff(){
+	public function viewStaffUpdate(){
+		$STAFF_ID=$this->session->userdata('STAFF_ID');
 		$this->load->model('OwnerModel');
-		$dataStaff['staff'] = $this->OwnerModel->staffList();
+		$dataStaff['staff'] = $this->OwnerModel->staffList($STAFF_ID);
 		$this->load->view('updateStaff',$dataStaff);
+	}
 	
+	public function updateStaff(){
+		
 		$sID=$this->input->POST("sID");
 		$sName=$this->input->POST("sName");
 		$sLName=$this->input->POST("sLName");
@@ -85,7 +90,7 @@ class Staff extends CI_Controller{
 		$staffDetail['staff'] = $this->staffRegister->staffList($sID,$sName,$sLName,$sType,$sAddress,$sGender,
 													 $sContact,$sEmail,$sUsername,$sPassword);
 		if($staffDetail){
-			$this->load->view('updateStaff',$staffDetail);
+			//$this->load->view('updateStaff',$staffDetail);
 			echo "Updated";
 		}
 		else{

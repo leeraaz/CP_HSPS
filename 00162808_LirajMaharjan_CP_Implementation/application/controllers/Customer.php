@@ -40,8 +40,30 @@ class Customer extends CI_Controller{
 		}
 	}
 	
-	public function updateInfo(){
-		$this->load->view("updateCustomer.php");
+	public function detailCustomer(){
+			$cusID=$this->session->userdata('CUSTOMER_ID');
+	
+	$this->load->model('customerRegister');
+		$data['record']=$this->customerRegister->customerDetails($cusID);
+		$this->load->view('updateCustomer', $data);
+	}
+	
+	public function updateCustomer(){ 
+		$cID=$this->input->POST("cID");
+		$cName=$this->input->POST("cName");
+		$cLName=$this->input->POST("cLName");
+		$cAddress=$this->input->POST("cAddress");
+		$cGender=$this->input->POST("cGender");
+		$cContact=$this->input->POST("cContact");
+		$cEmail=$this->input->POST("cEmail");
+		$cUsername=$this->input->POST("cUsername");
+		$cPassword=MD5($this->input->POST("cPassword"));
+		
+		$this->load->model("customerRegister");
+		$customerDetail['customer'] = $this->customerRegister->customerList($cID,$cName,$cLName,$cAddress,$cGender,
+													 $cContact,$cEmail,$cUsername,$cPassword);
+			echo " updated";
+		
 	}
 	
 	public function viewItems(){

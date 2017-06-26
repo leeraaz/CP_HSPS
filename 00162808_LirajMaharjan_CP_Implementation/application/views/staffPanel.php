@@ -13,7 +13,7 @@
 </div>
 <div id="sidebar">
 	<ul>
-		<li> <a href="<?php echo base_url();?>staff/updateStaff" >Update Profile </a></li>
+		<li> <a href="<?php echo base_url();?>Staff/viewStaffUpdate" >Update Profile </a></li>
 		<li> <a href="<?php echo base_url();?>staff/orderView" >View Order</a> </li>
 		<li> <a href="<?php echo base_url();?>staff/prepareBIll" >Prepare bill</a> </li>
 		<li> <a href="<?php echo base_url();?>Staff/logout" >Logout </a></li>

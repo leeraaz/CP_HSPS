@@ -18,7 +18,8 @@
 		public function stLogin($username,$password){
 			$sql=$this->db->where(['USERNAME'=>$username,'PASSWORD'=>$password])->get('staff');
 			if($sql->num_rows()>=1){
-				return $sql->row()->STAFF_TYPE_ID;
+				//return $record=$sql->row()->STAFF_TYPE_ID;
+				return $record1=$sql->row()->STAFF_ID;
 				//echo "get login";
 			}
 			else{
@@ -32,6 +33,7 @@
 		
 		
 		public function staffList($sID,$sName,$sLName,$sType,$sAddress,$sGender,$sContact,$sEmail,$sUsername,$sPassword){
+			
 			$array=array(
 				"STAFF_ID" => $sID,
 				"STAFF_FIRSTNAME" => $sName,

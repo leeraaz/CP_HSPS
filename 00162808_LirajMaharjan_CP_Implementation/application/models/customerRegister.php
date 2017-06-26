@@ -25,5 +25,33 @@
 			}
 		}
 		
+		public function customerDetails($cusID){
+			$this->db->where('CUSTOMER_ID',$cusID);
+			$sql=$this->db->get('customer');
+			return $sql->result();
+		}
+		
+		public function customerList($cID,$cName,$cLName,$cAddress,$cGender,
+									 $cContact,$cEmail,$cUsername,$cPassword){
+			$customerArray=array(
+				"CUSTOMER_ID"=>$cID,
+				"CUSTOMER_FIRSTNAME"=>$cName,
+				"CUSTOMER_LASTNAME"=>$cLName,
+				"CUSTOMER_ADDRESS"=>$cAddress,
+				"GENDER"=>$cGender,
+				"CONTACT"=>$cContact,
+				"EMAIL"=>$cEmail,
+				"USERNAME"=>$cUsername,
+				"PASSWORD"=>$cPassword,
+				);
+				$this->db->where("CUSTOMER_ID",$cID);
+				$this->db->update("customer",$customerArray);
+				return "Data has been updated";
+		}	
+		
+		public function deleteCustomer($CUSTOMER_ID){
+			$this->db->where('CUSTOMER_ID',$CUSTOMER_ID);
+			$sql=$this->db->delete('customer');
+		}
 	}
 ?>
