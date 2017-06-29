@@ -43,11 +43,17 @@ class Owner extends CI_Controller{
 		$this->load->view("ItemPage.php");
 	}
 	
+	public function editpipefitting(){
+		$this->load->view("editItem.php");
+	}
+	
 	public function updateStaff(){
 		$this->load->view('updateStaff.php');
 	}
 	
-	
+	public function orderPage(){
+		$this->load->view('orderPage.php');
+	}
 	
 	public function findUpdateSupplier(){
 		$SUPPLIER_ID=$this->input->post('suppID');

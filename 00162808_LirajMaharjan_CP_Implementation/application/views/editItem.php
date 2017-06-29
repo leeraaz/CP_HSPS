@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Edit Pipe and Fittings </title>
+	<link href="<?php echo base_url();?>assets/CSS/design.css" rel="stylesheet" content="text/css" />
+	<link href="<?php echo base_url();?>assets/CSS/bootstrap.min.css" rel="stylesheet" content="text/css" />
+<style>
+.val_error{
+	color:#FF1F1F;
+}
+</style>
+</head>
+<body>
+<div id="header">
+	<center><img id="adminlogo" src="<?php echo base_url();?>assets/Images/owner.png" alt="adminlogo"><br>
+	this is admin panel.<br/>
+	<?php
+	echo 'welcome -'.$this->session->userdata('USERNAME').' and you ID is.'.$this->session->userdata('STAFF_ID');
+	?>
+	</center>
+</div>
+<div id="sidebar">
+	<ul>
+		<li> <a href="<?php echo base_url();?>owner/supplier" >Add Supplier </a></li>
+		<li> <a href="<?php echo base_url();?>owner/pipefitting" >Add Pipe and Fittings </a></li>
+		<li> <a href="<?php echo base_url();?>owner/staffRegister" >Add Staff</a></li>
+		<li> <a href="<?php echo base_url();?>Staff/getCustomer" >Edit Customer </a></li>
+		<li> <a href="<?php echo base_url();?>supplier/getSupplier" >Update Supplier </a></li>
+		<li> <a href="" >Edit Pipe and Fittings </a></li>
+		<li> <a href="<?php echo base_url();?>Staff/getStaff" >Edit Staff</a></li>
+		<li> <a href="<?php echo base_url();?>Staff/logout" >Logout </a></li>
+	</ul>
+</div>
+<div id="data">
+<font color="white" size="4">
+<h2> Edit Staff </h2>
+<table border="2" align="center">
+<tr>
+	<th> ID </th>
+	<th> Image </th>
+	<th>Name </th>
+	<th>Size </th>
+	<th> Quantity </th>
+	<th> Buying </th>
+	<th> Selling </th>
+	<th> Delete </th>
+</tr>
+<?PHP
+ //var_dump($data2->result());
+	 
+	 foreach ($item as $product)
+{ ?>
+<tr>
+    <td><center> <?php echo $product->PFID; ?></center> </td>
+    <td> <?php echo $product->IMAGE; ?> </td>
+	<td> <?php echo $product->ITEM_NAME; ?> </td>
+	<td> <?php echo $product->SIZE_in_INCH; ?> </td>
+	<td> <?php echo $product->QUANTITY; ?> </td>
+	<td> <?php echo $product->BUYING_PRICE; ?> </td>
+	<td> <?php echo $product->SELLING_PRICE; ?> </td>
+	<td> <?php echo anchor("owner/delStaff/{$product->PFID}", 'Delete' ,['class'=>"btn btn-danger"]);?> </td>
+</tr>
+			<?php
+ }
+			
+?>
+
+</div>
+
+</body>
+</html>

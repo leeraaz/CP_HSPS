@@ -34,7 +34,7 @@
 <div id="data">
 <div id="Form">
   <h2>Pipe and Fittings form</h2>
-  <form action="<?php echo base_url();?>PipeAndFittings/info" method="POST">
+  <form action="<?php echo base_url();?>Upload/do" method="POST">
 	<div class="form-group">
       <label for="Image">Image:</label>
       <input type="file" class="form-control" id="image" placeholder="Insert image" name="image">
