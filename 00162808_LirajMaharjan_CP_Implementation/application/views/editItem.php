@@ -13,7 +13,7 @@
 <body>
 <div id="header">
 	<center><img id="adminlogo" src="<?php echo base_url();?>assets/Images/owner.png" alt="adminlogo"><br>
-	this is admin panel.<br/>
+	This is admin panel.<br/>
 	<?php
 	echo 'welcome -'.$this->session->userdata('USERNAME').' and you ID is.'.$this->session->userdata('STAFF_ID');
 	?>
@@ -21,12 +21,12 @@
 </div>
 <div id="sidebar">
 	<ul>
-		<li> <a href="<?php echo base_url();?>owner/supplier" >Add Supplier </a></li>
-		<li> <a href="<?php echo base_url();?>owner/pipefitting" >Add Pipe and Fittings </a></li>
-		<li> <a href="<?php echo base_url();?>owner/staffRegister" >Add Staff</a></li>
+		<li> <a href="<?php echo base_url();?>Owner/supplier" >Add Supplier </a></li>
+		<li> <a href="<?php echo base_url();?>Owner/pipefitting" >Add Pipe and Fittings </a></li>
+		<li> <a href="<?php echo base_url();?>Owner/staffRegister" >Add Staff</a></li>
 		<li> <a href="<?php echo base_url();?>Staff/getCustomer" >Edit Customer </a></li>
-		<li> <a href="<?php echo base_url();?>supplier/getSupplier" >Update Supplier </a></li>
-		<li> <a href="" >Edit Pipe and Fittings </a></li>
+		<li> <a href="<?php echo base_url();?>Supplier/getSupplier" >Update Supplier </a></li>
+		<li> <a href="<?php echo base_url();?>PipeAndFittings/getItem" >Edit Pipe and Fittings </a></li>
 		<li> <a href="<?php echo base_url();?>Staff/getStaff" >Edit Staff</a></li>
 		<li> <a href="<?php echo base_url();?>Staff/logout" >Logout </a></li>
 	</ul>
@@ -47,22 +47,20 @@
 </tr>
 <?PHP
  //var_dump($data2->result());
-	 
-	 foreach ($item as $product)
+	 foreach ($items as $product)
 { ?>
 <tr>
     <td><center> <?php echo $product->PFID; ?></center> </td>
-    <td> <?php echo $product->IMAGE; ?> </td>
+    <td> <img src='<?php echo $product->IMAGE; ?>' width="50px" height="50px" /></td>
 	<td> <?php echo $product->ITEM_NAME; ?> </td>
 	<td> <?php echo $product->SIZE_in_INCH; ?> </td>
 	<td> <?php echo $product->QUANTITY; ?> </td>
 	<td> <?php echo $product->BUYING_PRICE; ?> </td>
 	<td> <?php echo $product->SELLING_PRICE; ?> </td>
-	<td> <?php echo anchor("owner/delStaff/{$product->PFID}", 'Delete' ,['class'=>"btn btn-danger"]);?> </td>
+	<td> <?php //echo anchor("PipeAndFitting/delProduct{$product->PFID}", 'Delete' ,['class'=>"btn btn-danger"]);?> </td>
 </tr>
-			<?php
- }
-			
+<?php
+ }			
 ?>
 
 </div>

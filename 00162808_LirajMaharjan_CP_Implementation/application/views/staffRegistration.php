@@ -21,12 +21,12 @@
 </div>
 <div id="sidebar">
 	<ul>
-		<li> <a href="<?php echo base_url();?>owner/supplier" >Add Supplier </a></li>
-		<li> <a href="<?php echo base_url();?>owner/pipefitting" >Add Pipe and Fittings </a></li>
-		<li> <a href="<?php echo base_url();?>owner/staffRegister" >Add Staff</a></li>
+		<li> <a href="<?php echo base_url();?>Owner/supplier" >Add Supplier </a></li>
+		<li> <a href="<?php echo base_url();?>Owner/pipefitting" >Add Pipe and Fittings </a></li>
+		<li> <a href="<?php echo base_url();?>Owner/staffRegister" >Add Staff</a></li>
 		<li> <a href="<?php echo base_url();?>Staff/getCustomer" >Edit Customer </a></li>
-		<li> <a href="<?php echo base_url();?>supplier/getSupplier" >Update Supplier </a></li>
-		<li> <a href="" >Edit Pipe and Fittings </a></li>
+		<li> <a href="<?php echo base_url();?>Supplier/getSupplier" >Update Supplier </a></li>
+		<li> <a href="<?php echo base_url();?>PipeAndFittings/getItem" >Edit Pipe and Fittings </a></li>
 		<li> <a href="<?php echo base_url();?>Staff/getStaff" >Edit Staff</a></li>
 		<li> <a href="<?php echo base_url();?>Staff/logout" >Logout </a></li>
 	</ul>

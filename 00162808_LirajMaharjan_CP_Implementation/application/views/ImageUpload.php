@@ -9,9 +9,9 @@
   <form action="<?php echo base_url();?>Upload/do_upload" method="POST">
 	<div class="form-group">
       <label for="Image">Image:</label>
-     <input type="file" name="userfile" size="20" />	
+     <input type="file" name="file" size="20" />	
     </div>
-	 <div class="form-group">
+	<div class="form-group">
       <label for="Item Name">Item Name:</label>
       <input type="Item Name" class="form-control" id="Item Name" placeholder="Enter Item Name" name="itemName">
     </div>

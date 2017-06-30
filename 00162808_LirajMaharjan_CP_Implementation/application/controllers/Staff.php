@@ -35,7 +35,7 @@ class Staff extends CI_Controller{
 			
 			$login=$this->staffRegister->stLogin($username,$password);
 			if($login){
-				if($login==1 || $login==2){
+				if($login==1 || $login==21){
 					$this->session->set_userdata('STAFF_ID',$login);
 					$this->session->set_userdata('USERNAME',$username);
 					return redirect('owner/ownerPanel');

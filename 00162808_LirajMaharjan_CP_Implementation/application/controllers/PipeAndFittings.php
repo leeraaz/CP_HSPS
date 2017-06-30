@@ -37,8 +37,8 @@
 	
 	public function getItem(){
 		$this->load->model('pipeFittings');
-		$dataItem['item'] = $this->pipeFittings->itemDetail();
-		//$this->load->view('editItem',$dataItem);
+		$dataItem['items'] = $this->pipeFittings->itemDetail();
+		$this->load->view('editItem',$dataItem);
 	}
 }
 ?>
