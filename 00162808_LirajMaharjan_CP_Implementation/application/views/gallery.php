@@ -4,6 +4,7 @@
 <title> Hardware Sales and Purchases Shop</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="<?php echo base_url();?>assets/CSS/design.css" rel="stylesheet">
+<link href="<?php echo base_url();?>assets/CSS/bootstrap.min.css" rel="stylesheet">
 <style>
 ul {
     list-style-type: none;
@@ -99,7 +100,13 @@ li.dropdown {
 	<div id="menu">
 		<ul>
 			<li><a href="<?php echo base_url();?>owner/homepage"> Home </a></li>
-			<li><a href="<?php echo base_url();?>owner/pipefitting"> Pipe & Fittings</a></li>
+			<li class="dropdown">
+			<a href="javascript:void(0)" class="dropbtn">Pipe and Fittings</a>
+			<div class="dropdown-content">
+			  <a href="<?php echo base_url();?>PipeAndFittings/PPR">PPR Pipe and fittings</a>
+			  <a href="<?php echo base_url();?>PipeAndFittings/CPVC">CPVC Pipe and Fittings</a>
+			</div>
+			</li>
 			<li><a href="<?php echo base_url();?>owner/gallery"> Gallery </a></li>	
 			<li class="dropdown">
 			<a href="javascript:void(0)" class="dropbtn">Online Services</a>
@@ -112,11 +119,10 @@ li.dropdown {
 		</ul>
 	</div>
 </div> 
-	<br/><br/><br/><br/><br/><br/><br/><br/>
 	<hr/>
 	<div class="imagePage">
 		<div class="gallery">
-			<img src="<?php echo base_url();?>assets/Images/cpvcpipe.jpg" name="slide" align="center" width="100%" heigh="8%">
+			<img src="<?php echo base_url();?>assets/Images/cpvcpipe.jpg" class="image-reponsive" name="slide" align="center" width="100%" height="8%">
 			<script type="text/javascript">
 			var step=1
 			function slideit(){
@@ -134,32 +140,15 @@ li.dropdown {
 			being sold by this shop. We deal with PPR pipe & fittings as well as CPVC pipe & fittings manufactured by Panchakanya Group.
 			</font>
 		</div>
-	
-		<div class="loginForm2">
-			<font size="5px" color="white" align="center">
-			<font size="6px"><b>Owner and Staff only</b></font><br/>
-			<label>Username:</label>
-			<input type="text" name="Username" required="required" />
-			<br/>
-			<label>Password:</label>
-			<input type="password" name="Password" required="required" />	
-			<br/>
-			<input type="submit" name="submit" onClick="return val();" value="Login" />
-			<br/>	
-			<font size="5px" color="white" align="left">
-				If you are new then, first get registered. <br>
-				<a href="<?php echo base_url();?>owner/registrationPage	"> Here </a>
-			</font>
 		</div>
-	</div>
-	
-	<font color="white">
-			<div class="bottom2" align="center">
+		<font color="#2c3e50">
+			<div class="bottom" align="center">
 				Teku, Kathmandu</br>
 				Contact No. : +97765464564<br/>
 				PO Box No : 54535</br>
 				<u>hardwareS&P@gmail.com</u></br></br>
 			</div>
 		</font>
+	
 </body>
 </html>

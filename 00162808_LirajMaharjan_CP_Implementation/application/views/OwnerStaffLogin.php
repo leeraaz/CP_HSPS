@@ -79,7 +79,13 @@ li.dropdown {
 	<div id="menu">
 		<ul>
 			<li><a href="<?php echo base_url();?>owner/homepage"> Home </a></li>
-			<li><a href="<?php echo base_url();?>owner/pipefitting"> Pipe & Fittings</a></li>
+			<li class="dropdown">
+			<a href="javascript:void(0)" class="dropbtn">Pipe and Fittings</a>
+			<div class="dropdown-content">
+			  <a href="<?php echo base_url();?>PipeAndFittings/PPR">PPR Pipe and fittings</a>
+			  <a href="<?php echo base_url();?>PipeAndFittings/CPVC">CPVC Pipe and Fittings</a>
+			</div>
+			</li>
 			<li><a href="<?php echo base_url();?>owner/gallery"> Gallery </a></li>	
 			<li class="dropdown">
 			<a href="javascript:void(0)" class="dropbtn">Online Services</a>

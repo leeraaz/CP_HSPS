@@ -65,7 +65,7 @@ li.dropdown {
 <body>
 <div id="up">
 	<div id="logo">
-		<img src="http://localhost/CI/assets/Images/logo.png" alt="Godown"width="60%" height="30%"/>
+		<img src="http://localhost/CI/assets/Images/logo.png" alt="Godown" width="60%" height="30%"/>
 	</div>
 	<div id="heading">
 		<font color="#2c3e50">
@@ -75,12 +75,18 @@ li.dropdown {
 	<div id="menu">
 		<ul>
 			<li><a href="<?php echo base_url();?>owner/homepage"> Home </a></li>
-			<li><a href="<?php echo base_url();?>owner/pipefitting"> Pipe & Fittings</a></li>
+			<li class="dropdown">
+			<a href="javascript:void(0)" class="dropbtn">Pipe and Fittings</a>
+			<div class="dropdown-content">
+			 <a href="<?php echo base_url();?>PipeAndFittings/PPR">PPR Pipe and fittings</a>
+			  <a href="<?php echo base_url();?>PipeAndFittings/CPVC">CPVC Pipe and Fittings</a>
+			</div>
+			</li>
 			<li><a href="<?php echo base_url();?>owner/gallery"> Gallery </a></li>	
 			<li class="dropdown">
 			<a href="javascript:void(0)" class="dropbtn">Online Services</a>
 			<div class="dropdown-content">
-			  <a href="<?php echo base_url();?>owner/cusLogin">Owner/Staff Login</a>
+			  <a href="<?php echo base_url();?>owner/ownerLogin">Owner/Staff Login</a>
 			  <a href="<?php echo base_url();?>owner/cusLogin">Customer Login</a>
 			  <a href="<?php echo base_url();?>owner/cusRegistration">Customer Registration</a>
 			</div>
@@ -134,10 +140,10 @@ li.dropdown {
 			</div>
 			<div class="info">
 				For more information please visit following link.
-				<a href="<?php echo base_url();?>owner/pipefitting" style="text-decoration:none; color:white; background:black">Here</a>
+				<a href="<?php echo base_url();?>PipeAndFittings/PPR" style="text-decoration:none; color:white;">Here</a>
 			</div>
 		</font>
-		</div>
+		</div><br/><br/>
 		<font color="#2c3e50">
 			<div class="bottom" align="center">
 				Teku, Kathmandu</br>

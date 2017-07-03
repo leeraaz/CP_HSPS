@@ -1,40 +1,49 @@
 <?php
- class PipeAndFittings extends CI_Controller{
-	 
-	public function pipe(){
-		$this->load->model('pipeFittings');
-		
-		if($this->input->post('upload')){
-			$this->pipeFittings->do_upload();
-		}
-		
-		$this->load->view('ImageUpload.php');
+class PipeAndFittings extends CI_Controller {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->helper(array('form', 'url'));
+    }
+
+	public function PPR(){
+		$this->load->view('PPR.html');
 	}
 	
-	public function info(){
-		
-		$config['enable_query_strings'] = TRUE;
-		
-		$image=$this->input->POST("userfile");
+	public function CPVC(){
+		$this->load->view('CPVC.html');
+	}
+	
+	
+    public function index(){
+        $this->load->view('ItemPage', array('error' => ' ' ));
+    }
+
+    public function do_upload(){
+        $config['upload_path']          = './assets/Images';
+        $config['allowed_types']        = 'jpg|jpeg|png|gif|';
+        $this->load->library('upload', $config);
+		$this->upload->do_upload('file');
+		$data=array('upload_data'=>$this->upload->data());
+       
+		$image=$data['upload_data']['file_name'];
 		$itemName=$this->input->POST("itemName");
 		$size=$this->input->POST("size");
 		$quantity=$this->input->POST("quantity");
 		$buying=$this->input->POST("buying");
 		$selling=$this->input->POST("selling");
-
 		$this->load->model("pipeFittings"); //loading a model
 		$itemInsert=$this->pipeFittings->itemSave($image,$itemName,$size,$quantity,$buying,$selling);   //calling function
 		
 		if($itemInsert){
-			$data['msg']='Item has been inserted successfully.';
-			return redirect(base_url() . 'Owner/pipefitting',$data);
+			echo "value inserted";
+			redirect (base_url(). 'PipeAndFittings/index');
 		}
 		else{
-			$data['msg2']='Sorry.Try again.';
-			return redirect(base_url() . 'Owner/pipefitting',$data);
-		}
+			echo "not inserted";
+		}	
 	}
-	
+
 	public function getItem(){
 		$this->load->model('pipeFittings');
 		$dataItem['items'] = $this->pipeFittings->itemDetail();

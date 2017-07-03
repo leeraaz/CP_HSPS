@@ -31,7 +31,7 @@
 		<li> <a href="<?php echo base_url();?>Staff/logout" >Logout </a></li>
 	</ul>
 </div>
-<div id="data">
+<div id="data2">
 <div id="staffForm">
 <form action="<?php echo base_url();?>Staff/saveData" method="POST" onsubmit="return staffValidate()" name="sForm">
 	<font size="5px" color="white">

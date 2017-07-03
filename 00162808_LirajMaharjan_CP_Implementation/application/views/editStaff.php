@@ -22,7 +22,7 @@
 		<li> <a href="<?php echo base_url();?>Staff/logout" >Logout </a></li>
 	</ul>
 </div>
-<div id="data">
+<div id="data2">
 <font color="white" size="4">
 <h2> Edit Staff </h2>
 <table border="2" align="center">
@@ -39,9 +39,7 @@
 	<th> Delete </th>
 </tr>
 <?PHP
- //var_dump($data2->result());
-	 
-	 foreach ($staff as $row)
+	foreach ($staff as $row)
 { ?>
 <tr>
     <td><center> <?php echo $row->STAFF_ID; ?></center> </td>
@@ -51,7 +49,7 @@
 	<td> <?php echo $row->STAFF_ADDRESS; ?> </td>
 	<td> <?php echo $row->GENDER; ?> </td>
 	<td> <?php echo $row->CONTACT; ?> </td>
-	<td> <?php echo $row->EMAIL; ?> </td>
+	<td> <?php echo $row->EMAIL; ?> </td> 
 	<td> <?php echo $row->USERNAME; ?> </td>
 	<td> <?php echo anchor("owner/delStaff/{$row->STAFF_ID}", 'Delete' ,['class'=>"btn btn-danger"]);?> </td>
 </tr>

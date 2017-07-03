@@ -1,5 +1,5 @@
 body{
-background-image:url('http://localhost/CI/assets/Images/wod.png');
+background-image:url('http://localhost/CI/assets/Images/wood.png');
 height:100%;
 width:100%
 }
@@ -146,9 +146,15 @@ input{
 #sidebar ul li:hover{
 	background:#E6EE9C;
 }
+
 #data{
-	height:1000px;
 	background:#34495e;
+	height:200%;
+}
+
+#data2{
+	background:#34495e;
+	height:1000px;
 }
 
 .homepage{
@@ -227,15 +233,25 @@ input{
 	margin-left:2%;
 }
 
+.bottom3{
+	background:#f9f9f9;
+	margin-top:1%;
+	width:100%;
+}
+
+.features{
+	background-color:#C0C0C0;
+}
+
 .imagePage{
-	width:90%;
+	width:96%;
 	height:90%;
 	float:left;
-	margin-left:5%;
+	margin-left:2%;
 }
 
 .gallery{
-	width:75%;
+	width:100%;
 	height:60%;
 	float:left;
 	margin-top:2%;

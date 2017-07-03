@@ -33,7 +33,7 @@
 </div>
 <div id="data">
 <font color="white" size="4">
-<h2> Edit Staff </h2>
+<h2> Edit Pipe and Fittings </h2>
 <table border="2" align="center">
 <tr>
 	<th> ID </th>
@@ -48,10 +48,11 @@
 <?PHP
  //var_dump($data2->result());
 	 foreach ($items as $product)
+
 { ?>
 <tr>
     <td><center> <?php echo $product->PFID; ?></center> </td>
-    <td> <img src='<?php echo $product->IMAGE; ?>' width="50px" height="50px" /></td>
+    <td> <img src='<?php echo base_url();?>assets/Images/<?php echo $product->IMAGE;?>' style="width:100px;" class="img-responsive"/></td>
 	<td> <?php echo $product->ITEM_NAME; ?> </td>
 	<td> <?php echo $product->SIZE_in_INCH; ?> </td>
 	<td> <?php echo $product->QUANTITY; ?> </td>
@@ -62,8 +63,6 @@
 <?php
  }			
 ?>
-
 </div>
-
 </body>
 </html>

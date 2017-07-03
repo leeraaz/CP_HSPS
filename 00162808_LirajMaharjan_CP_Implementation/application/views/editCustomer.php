@@ -29,14 +29,15 @@
 		<li> <a href="<?php echo base_url();?>Staff/logout" >Logout </a></li>
 	</ul>
 </div>
-<div id="data">
+<div id="data2">
 <div id="staffForm">
 <form action="<?php echo base_url();?>Owner/deleteCustomer" method="POST" onsubmit="return sValidate()" name="sForm">
-	<font size="5px" color="">
-		<font size="6px"><b> Delete Customer </b></font>
-		<label for="ID">Supplier Identity:</label>
+	<font size="5px" color="white">
+		<font size="6px"><b> Delete Customer </b></font><br/>
+		<font size="6px"><label for="delete">Select Customer to delete:</label></font>
+		<font color="black">
 		<select name="customer_ID">
-			<?php 
+			<?php
 				foreach ($customers as $value){
 			?>
 			<option value="<?php echo $value->CUSTOMER_ID; ?>"> <?php echo $value->CUSTOMER_FIRSTNAME; ?> </option>
@@ -44,8 +45,8 @@
 				}
 			?>
 		</select>
-		
-		<button type="submit" style="margin-left:40%; width:15%;" class="btn btn-primary">Search</button>
+		</font>
+		<button type="submit" style="margin-left:40%; width:15%;" class="btn btn-danger">Delete</button>
 	</font>
 </form>
 </div>

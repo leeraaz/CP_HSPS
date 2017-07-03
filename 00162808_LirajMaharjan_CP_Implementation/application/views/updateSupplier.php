@@ -29,7 +29,7 @@
 		<li> <a href="<?php echo base_url();?>Staff/logout" >Logout </a></li>
 	</ul>
 </div>
-<div id="data">
+<div id="data2">
 <div id="staffForm">
 <?php 
 	foreach($supplier as $row){
@@ -63,10 +63,10 @@
 	</font>
 </form>
 </div>
-</div>
 <?php
 	}
 ?>
+</div>
 </body>
 </html>
 <script type="text/javascript">

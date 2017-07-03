@@ -31,13 +31,14 @@
 		<li> <a href="<?php echo base_url();?>Staff/logout" >Logout </a></li>
 	</ul>
 </div>
-<div id="data">
+<div id="data2">
 <div id="Form">
   <h2>Pipe and Fittings form</h2>
-  <form action="<?php echo base_url();?>Upload/do" method="POST">
+   <?php echo form_open_multipart('PipeAndFittings/do_upload');?>
+  <form action="<?php echo base_url();?>PipeandFittings/do_upload" method="POST">
 	<div class="form-group">
       <label for="Image">Image:</label>
-      <input type="file" class="form-control" id="image" placeholder="Insert image" name="image">
+      <input type="file" class="form-control" id="image" placeholder="Insert image" name="file">
     </div>
 	 <div class="form-group">
       <label for="Item Name">Item Name:</label>
@@ -45,7 +46,14 @@
     </div>
 	 <div class="form-group">
       <label for="Size">Size:</label>
-      <input type="Size" class="form-control" id="Size" placeholder="Enter Size" name="size">
+		<select type="Size" class="form-control" id="Size" placeholder="Enter Size" name="size">
+		  <option value="1/2">1/2 </option>
+		  <option value="3/4">3/4</option>
+		  <option value="1">1</option>
+		  <option value="1 1/2">1 1/2</option>
+		  <option value="2 ">2</option>
+		  <option value="2 1/2">2 1/2</option>
+		</select>
     </div>
 	 <div class="form-group">
       <label for="Quantity">Quantity:</label>
@@ -59,6 +67,7 @@
       <label for="Selling">Selling price:</label>
       <input type="Selling" class="form-control" id="Selling" placeholder="Enter Selling" name="selling">
     </div>
+	<input type="reset" class="btn btn-danger" style="margin-left:35%">
     <button type="submit" class="btn btn-primary">Submit</button>
 	<?php
 	if(isset($msg)) echo $msg;
