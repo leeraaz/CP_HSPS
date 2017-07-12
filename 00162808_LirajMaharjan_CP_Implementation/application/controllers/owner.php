@@ -36,6 +36,7 @@ class Owner extends CI_Controller{
 	}
 	
 	public function customerPanel(){
+		
 		$this->load->view("customerPanel.php");
 	}
 	
@@ -55,6 +56,7 @@ class Owner extends CI_Controller{
 		$this->load->view('orderPage.php');
 	}
 	
+	//for updating supplier information.
 	public function findUpdateSupplier(){
 		$SUPPLIER_ID=$this->input->post('suppID');
 		$this->load->model('Supplier_Model');

@@ -1,5 +1,6 @@
 <?php
 class Staff extends CI_Controller{
+	//for inserting staff details
 	public function saveData(){
 		$sName=$this->input->POST("sName");
 		$sLName=$this->input->POST("sLName");
@@ -12,30 +13,30 @@ class Staff extends CI_Controller{
 		$sPassword=MD5($this->input->POST("sPassword"));
 		
 
-		$this->load->model("staffRegister"); //loading a model
-		$saveIt=$this->staffRegister->save($sName,$sLName,$sType,$sAddress,$sGender,$sContact,$sEmail,$sUsername,$sPassword);   //calling function
+		$this->load->model("Staff_Model"); //loading a model
+		$saveIt=$this->Staff_Model->save($sName,$sLName,$sType,$sAddress,$sGender,$sContact,$sEmail,$sUsername,$sPassword);   //calling function
 		echo $saveIt;
 		
 		if($customerSave){
-			$data['msg']='Customer data inserted successfully.';
+			$data['msg']='Staff data inserted successfully.';
 			redirect(base_url() . 'Owner/staffRegister',$data);
 		}
 		else{
 			$data['msg2']='Sorry.Try again.';
-			redirect(base_url() . 'Owner/staffRegister',$data);
+			redirect(base_url() . 'Owner/staffRegister	',$data);
 		}
 	}
 	
+	//for staff and owner login.
 	public function stfLogin(){
-			//true
 			$username=$this->input->post('suser');
 			$password=MD5($this->input->post('spwd'));
 			
-			$this->load->model('staffRegister');
+			$this->load->model('Staff_Model');
 			
-			$login=$this->staffRegister->stLogin($username,$password);
+			$login=$this->Staff_Model->stLogin($username,$password);
 			if($login){
-				if($login==1 || $login==21){
+				if($login==1){
 					$this->session->set_userdata('STAFF_ID',$login);
 					$this->session->set_userdata('USERNAME',$username);
 					return redirect('owner/ownerPanel');
@@ -86,8 +87,8 @@ class Staff extends CI_Controller{
 		$sUsername=$this->input->POST("sUsername");
 		$sPassword=MD5($this->input->POST("sPassword"));
 		
-		$this->load->model("staffRegister");
-		$staffDetail['staff'] = $this->staffRegister->staffList($sID,$sName,$sLName,$sType,$sAddress,$sGender,
+		$this->load->model("Staff_Model");
+		$staffDetail['staff'] = $this->Staff_Model->staffList($sID,$sName,$sLName,$sType,$sAddress,$sGender,
 													 $sContact,$sEmail,$sUsername,$sPassword);
 		if($staffDetail){
 			//$this->load->view('updateStaff',$staffDetail);
@@ -99,19 +100,29 @@ class Staff extends CI_Controller{
 	}
 	
 	public function orderView(){
-		$this->load->view("orderView.php");
+		$this->load->model('Order_Model');
+		$data['order'] = $this->Order_Model->orderDisplay();
+		$this->load->view('customerOrderPage',$data);
 	}
-	
-	public function prepareBill(){
-		$this->load->view("prepareBill.php");
-	}
+
+	public function prepareBill() {
+        $sessionData = $this->session->userdata('CUSTOMER_ID');
+        if ($sessionData != '') {
+            $this->load->model('Staff_Model');
+
+            $data['bill'] = $this->Staff_Model->billGenerate
+                    ($sessionData);
+
+            $this->load->view('preparebill', $data);
+        } else {
+            echo "no session";
+        }
+    }
 	
 	public function logout(){
 		$this->session->unset_userdata('username');
 		$this->session->unset_userdata('STAFF_ID');
 		redirect(base_url().'owner/ownerLogin'); 
 	}
-	
-	
 }	
 ?>

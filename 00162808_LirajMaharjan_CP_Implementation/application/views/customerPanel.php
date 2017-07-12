@@ -13,7 +13,7 @@
 <div id="sidebar">
 	<ul>
 		<li><a href="<?php echo base_url();?>customer/viewItems"> View items </a> </li>
-		<li><a href="<?php echo base_url();?>customer/order"> Place Order </a></li>
+		<li><a href="<?php echo base_url();?>Order/orderPage"> Place Order </a></li>
 		<li><a href="<?php echo base_url();?>customer/detailCustomer"> Update profile </a> </li>
 		<li><a href="<?php echo base_url();?>customer/cusLogout"> Logout </a></li>
 	</ul>

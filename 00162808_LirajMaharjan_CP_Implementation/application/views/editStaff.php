@@ -24,7 +24,7 @@
 </div>
 <div id="data2">
 <font color="white" size="4">
-<h2> Edit Staff </h2>
+<center><h2> Edit Staff </h2></center>
 <table border="2" align="center">
 <tr>
 	<th> Staff ID </th>

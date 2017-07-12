@@ -14,7 +14,7 @@
 	<ul>
 		<li><a href="<?php echo base_url();?>customer/viewItems"> View items </a> </li>
 		<li><a href="<?php echo base_url();?>customer/order"> Place Order </a></li>
-		<li><a href="<?php echo base_url();?>customer/updateCustomer"> Update profile </a> </li>
+		<li><a href="<?php echo base_url();?>customer/detailCustomer"> Update profile </a> </li>
 		<li><a href="<?php echo base_url();?>customer/cusLogout"> Logout </a></li>
 	</ul>
 </div>
@@ -29,49 +29,25 @@
 			<td>Size</td>
 			<td> Quantity </td>	
 		</tr>	
-		
-		<tr>
-			<td><input type="combobox" name="items" required="required"/> </td>
-			<td><input type="text" name="sizes" required="required"/>  </td>
-			<td><input type="text" name="quantities" required="required"/> </td>
-		</tr>
-		<tr>
-			<td><input type="text" name="items" required="required"/> </td>
-			<td><input type="text" name="sizes" required="required"/>  </td>
-			<td><input type="text" name="quantities" required="required"/> </td>
-		</tr>
-		<tr>
-			<td><input type="text" name="items" required="required"/> </td>
-			<td><input type="text" name="sizes" required="required"/>  </td>
-			<td><input type="text" name="quantities" required="required"/> </td>
-		</tr>
-		<tr>
-			<td><input type="text" name="items" required="required"/> </td>
-			<td><input type="text" name="sizes" required="required"/>  </td>
-			<td><input type="text" name="quantities" required="required"/> </td>
-		</tr>
-		<tr>
-			<td><input type="text" name="items" required="required"/> </td>
-			<td><input type="text" name="sizes" required="required"/>  </td>
-			<td><input type="text" name="quantities" required="required"/> </td>
-		</tr>
-		<tr>
-			<td><input type="text" name="items" required="required"/> </td>
-			<td><input type="text" name="sizes" required="required"/>  </td>
-			<td><input type="text" name="quantities" required="required"/> </td>
-		</tr>
-		<tr>
-			<td><input type="text" name="items" required="required"/> </td>
-			<td><input type="text" name="sizes" required="required"/>  </td>
-			<td><input type="text" name="quantities" required="required"/> </td>
-		</tr>
-		<tr>
-			<td><input type="text" name="items" required="required"/> </td>
-			<td><input type="text" name="sizes" required="required"/>  </td>
-			<td><input type="text" name="quantities" required="required"/> </td>
-		</tr>
-		<td></td>
-		<td></td>
+		<div id="product">
+	<ul>
+		<?php foreach ($products as $product){?>
+		<li>
+			<?php echo form_open('Order/add');?>
+			<div class="name"><?php echo $product->ITEM_NAME;?></div>
+			<img src='<?php echo base_url();?>assets/Images/<?php echo $product->IMAGE;?>' width="212px" >
+			<div class="name"><?php echo $product->IMAGE;?></div>
+			<div class="size"><?php echo $product->SIZE_in_INCH;?></div>
+			<div class="qty"><?php echo $product->QUANTITY;?></div>
+			<div class="sale"><?php echo $product->SELLING_PRICE;?></div>
+			
+			<?php echo form_hidden('id',$product->PFID);?>
+			<?php echo form_submit('action','Add to CART');?>
+			<?php echo form_close();?>
+		</li>
+		<?php }?>
+	</ul>	
+</div>
 		<td align="right"> <input type="button" name="order" align="center" value="Order"> </td>
 	</table>
 	</div>

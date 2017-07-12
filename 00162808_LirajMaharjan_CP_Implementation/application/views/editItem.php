@@ -33,7 +33,7 @@
 </div>
 <div id="data">
 <font color="white" size="4">
-<h2> Edit Pipe and Fittings </h2>
+<center><h2> Edit Pipe and Fittings </h2></center>
 <table border="2" align="center">
 <tr>
 	<th> ID </th>
@@ -58,7 +58,7 @@
 	<td> <?php echo $product->QUANTITY; ?> </td>
 	<td> <?php echo $product->BUYING_PRICE; ?> </td>
 	<td> <?php echo $product->SELLING_PRICE; ?> </td>
-	<td> <?php //echo anchor("PipeAndFitting/delProduct{$product->PFID}", 'Delete' ,['class'=>"btn btn-danger"]);?> </td>
+	<td> <?php echo anchor("PipeAndFitting/delProduct{$product->PFID}", 'Delete' ,['class'=>"btn btn-danger"]);?> </td>
 </tr>
 <?php
  }			

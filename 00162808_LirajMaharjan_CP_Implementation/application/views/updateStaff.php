@@ -20,7 +20,7 @@
 <div id="sidebar">
 	<ul>
 		<li> <a href="<?php echo base_url();?>staff/updateStaff" >Update Profile </a></li>
-		<li> <a href="<?php echo base_url();?>staff/orderView" >View Order</a> </li>
+		<li> <a href="<?php echo base_url();?>staff/sale" >View Order</a> </li>
 		<li> <a href="<?php echo base_url();?>staff/prepareBIll" >Prepare bill</a> </li>
 		<li> <a href="<?php echo base_url();?>Staff/logout" >Logout </a></li>
 	</ul>
@@ -32,11 +32,8 @@
 ?>
 <form action="<?php echo base_url();?>Staff/updateStaff" method="POST" onsubmit="return sValidate()" name="sForm">
 	<font size="5px" color="white">
-		<font size="6px"><b> Update Staff </b></font>
-		<div class="form-group">
-		<label for="ID">Staff Identity:</label>
-		<input type="combobox" class="from-control" id="staffID" value="<?php echo $row->STAFF_ID; ?>" name="sID">
-		</div>
+		<font size="6px"><b> Update Staff </b></font></br>
+		<?php echo "Your Staff ID is <strong>" . $row->STAFF_ID . "</strong>"?>
 		<div class="form-group">
 		<label for="FirstName">First Name:</label>
 		<input type="FirstName" class="form-control" id="FirstName" value="<?php echo $row->STAFF_FIRSTNAME; ?>" name="sName">
@@ -55,9 +52,25 @@
 		</div>
 		<div class="form-group">
 		<label for="Gender">Gender:</label>
-		<input type="radio"  id="Gender" name="sGender" value="<?php echo $row->GENDER; ?>" required="required"/> Male
-		<input type="radio" id="Gender" name="sGender" value="<?php echo $row->GENDER; ?>" required="required"/> Female
-		<input type="radio" id="Gender" name="sGender" value="<?php echo $row->GENDER; ?>" required="required"/> Others
+		<?php   $gender= $row->GENDER;
+			if($gender=='Male'){
+		?>
+		<input type="radio" class="radio-control" id="sGender" name="cGender" value="Male" required="required" checked="checked"/> Male
+		<input type="radio" class="radio-control" id="sGender" name="cGender" value="Female" required="required"/> Female
+		<input type="radio" class="radio-control" id="sGender" name="cGender" value="Others" required="required"/> Others
+		<?php	} else if($gender == 'Female'){
+		?>
+		<input type="radio" class="radio-control" id="sGender" name="cGender" value="Male" required="required" /> Male
+		<input type="radio" class="radio-control" id="sGender" name="cGender" value="Female" required="required" checked="checked"/> Female
+		<input type="radio" class="radio-control" id="sGender" name="cGender" value="Others" required="required"/> Others
+		<?php
+		}	else{		?>
+		<input type="radio" class="radio-control" id="sGender" name="cGender" value="Male" required="required" /> Male
+		<input type="radio" class="radio-control" id="sGender" name="cGender" value="Female" required="required" /> Female
+		<input type="radio" class="radio-control" id="sGender" name="cGender" value="Others" required="required" checked="checked"/> Others
+		<?php
+		}
+		?>
 		</div>
 		<div class="form-group">
 		<label for="Contact">Contact Number:</label>

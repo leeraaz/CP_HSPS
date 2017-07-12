@@ -31,8 +31,7 @@
 </div>
 <div id="data2">
 <div id="staffForm">
-<?php 
-?>
+
 <form action="<?php echo base_url();?>Owner/findUpdateSupplier" method="POST" onsubmit="return sValidate()" name="sForm">
 	<font size="5px" color="white">
 		<font size="6px"><b> Update Supplier </b></font>
@@ -46,8 +45,6 @@
 </form>
 </div>
 </div>
-<?php
-	
-?>
+
 </body>
 </html>

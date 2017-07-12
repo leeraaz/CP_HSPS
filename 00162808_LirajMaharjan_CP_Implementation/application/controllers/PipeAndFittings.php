@@ -19,6 +19,7 @@ class PipeAndFittings extends CI_Controller {
         $this->load->view('ItemPage', array('error' => ' ' ));
     }
 
+	//to inserting pipe and fittings details with image.
     public function do_upload(){
         $config['upload_path']          = './assets/Images';
         $config['allowed_types']        = 'jpg|jpeg|png|gif|';
@@ -41,6 +42,7 @@ class PipeAndFittings extends CI_Controller {
 		}
 		else{
 			echo "not inserted";
+			redirect (base_url(). 'PipeAndFittings/index');
 		}	
 	}
 

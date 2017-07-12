@@ -1,23 +1,29 @@
 <?php
 	class Order extends CI_Controller{
-		public function index(){
+		public function orderPage(){
 			$this->load->model('Order_Model');
 			$data['products'] = $this->Order_Model->getProduct();
 			$this->load->view('orderPage',$data);
 		}
 		
-		public function add(){
-			$this->load->model('Order_Model');
-			$product=$this->Order_Model->get($this->input->post('itemID'));
+		 public function addtoOrder(){
+			 
+			$sessionData = $this->session->userdata('CUSTOMER_ID');
 			
-			$insert=array(
-				'id' => $this->input->post('itemID'),	
-				'name' => $product->ITEM_NAME,	
-				'size' => $product->SIZE_in_INCH,	
-				'qty' => 1,
-				'price' => $product->SELLING_PRICE	
-			);	
-			$this->cart->insert($insert);
+			if ($sessionData != '') {
+			$itemName=$this->input->POST("itemName");
+			$itemSize=$this->input->POST("size");
+			$qty=$this->input->POST("qty");
+			$price=$this->input->POST("price");
+            $this->load->model('Order_Model');
+
+            $this->Order_Model->placeOrder($sessionData,$itemName,$itemSize,$qty,$price);
+
+            redirect (base_url(). 'Order/orderPage');
+			} 
+			else {
+            echo " note";
+        }
 		}
 	}
 ?>

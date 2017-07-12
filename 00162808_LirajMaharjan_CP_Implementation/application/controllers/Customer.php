@@ -1,5 +1,6 @@
 <?php
 class Customer extends CI_Controller{
+	//for passing the value to Customer_Model
 	public function saveCusData(){
 		$cName=$this->input->POST("cName");
 		$cLName=$this->input->POST("cLName");
@@ -10,8 +11,8 @@ class Customer extends CI_Controller{
 		$cUsername=$this->input->POST("cUsername");
 		$cPassword=MD5($this->input->POST("cPassword"));
 
-		$this->load->model("customerRegister"); //loading a model
-		$customerSave=$this->customerRegister->cusSave($cName,$cLName,$cAddress,$cGender,$cContact,$cEmail,$cUsername,$cPassword);   //calling function
+		$this->load->model("Customer_Model"); //loading a model
+		$customerSave=$this->Customer_Model->cusSave($cName,$cLName,$cAddress,$cGender,$cContact,$cEmail,$cUsername,$cPassword);   //calling function
 		
 		if($customerSave){
 			$data['msg']='Customer data inserted successfully.';
@@ -23,13 +24,15 @@ class Customer extends CI_Controller{
 		}
 	}
 	
+	//for customer login
 	public function cusLogin(){
 		$cUsername=$this->input->POST("cusUsername");
 		$cPassword=MD5($this->input->POST("cusPassword"));
 		
-		$this->load->model("customerRegister");
-		$cLogin=$this->customerRegister->custLogin($cUsername,$cPassword);
+		$this->load->model("Customer_Model");
+		$cLogin=$this->Customer_Model->custLogin($cUsername,$cPassword);
 		if($cLogin){
+			$this->load->library('session');
 			$this->session->set_userdata('CUSTOMER_ID',$cLogin);
 			$this->session->set_userdata('USERNAME',$cUsername);
 			return redirect('owner/customerPanel');
@@ -43,8 +46,8 @@ class Customer extends CI_Controller{
 	public function detailCustomer(){
 			$cusID=$this->session->userdata('CUSTOMER_ID');
 	
-	$this->load->model('customerRegister');
-		$data['record']=$this->customerRegister->customerDetails($cusID);
+		$this->load->model('Customer_Model');
+		$data['record']=$this->Customer_Model->customerDetails($cusID);
 		$this->load->view('updateCustomer', $data);
 	}
 	
@@ -59,8 +62,8 @@ class Customer extends CI_Controller{
 		$cUsername=$this->input->POST("cUsername");
 		$cPassword=MD5($this->input->POST("cPassword"));
 		
-		$this->load->model("customerRegister");
-		$customerDetail['customer'] = $this->customerRegister->customerList($cID,$cName,$cLName,$cAddress,$cGender,
+		$this->load->model("Customer_Model");
+		$customerDetail['customer'] = $this->Customer_Model->customerList($cID,$cName,$cLName,$cAddress,$cGender,
 													 $cContact,$cEmail,$cUsername,$cPassword);
 			echo " updated";
 		
@@ -71,7 +74,7 @@ class Customer extends CI_Controller{
 	}
 	
 	public function order(){
-		$this->load->view("customerOrderPage.php");
+		$this->load->view("orderpage.php");
 	}
 	public function cusLogout(){
 		$this->session->unset_userdata('CUSTOMER');
