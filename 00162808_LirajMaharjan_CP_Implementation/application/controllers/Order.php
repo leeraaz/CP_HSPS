@@ -6,8 +6,8 @@
 			$this->load->view('orderPage',$data);
 		}
 		
-		 public function addtoOrder(){
-			 
+		//for ordering an items available
+		public function addtoOrder(){ 
 			$sessionData = $this->session->userdata('CUSTOMER_ID');
 			
 			if ($sessionData != '') {
@@ -22,7 +22,7 @@
             redirect (base_url(). 'Order/orderPage');
 			} 
 			else {
-            echo " note";
+            echo "No any order has been made.";
         }
 		}
 	}

@@ -8,25 +8,28 @@
 <body>
 <div id="header">
 	<center><img id="adminlogo" src="<?php echo base_url();?>assets/Images/customer.png" alt="adminlogo"><br>
-	Customer PANEL.
+	Customer PANEL.</br>
+	<?php
+		echo 'Welcome - '.$this->session->userdata('USERNAME').' and your customer ID is.'.$this->session->userdata('CUSTOMER_ID');
+	?>
 	</center>
 </div>
 <div id="sidebar">
 	<ul>
-		<li><a href="<?php echo base_url();?>customer/viewItems"> View items </a> </li>
+		<li><a href="<?php echo base_url();?>PipeAndFittings/getItemforCustomer"> View items </a> </li>
 		<li><a href="<?php echo base_url();?>Order/orderPage"> Place Order </a></li>
 		<li><a href="<?php echo base_url();?>customer/detailCustomer"> Update profile </a> </li>
-		<li><a href="<?php echo base_url();?>Customer/cusLogout"> Logout </a></li>
+		<li><a href="<?php echo base_url();?>customer/cusLogout"> Logout </a></li>
 	</ul>
 </div>
 <div id="data">
-<h3>hello everyone</h3>
 <div id="customerForm">
+<font size="5px" color="white">
 <?php
+	echo $this->session->flashdata('error');
 	foreach($record as $row){
 ?>
 <form action="<?php echo base_url();?>Customer/updateCustomer" method="POST" onsubmit="return validate()" name="form">
-	<font size="5px" color="white">
 		<center><font size="6px"><b> Customer Registration </b></font></center>
 		<div class="form-group">
 		<label for="cID">Customer ID:</label>

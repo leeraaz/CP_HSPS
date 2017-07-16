@@ -1,15 +1,18 @@
 <?php
 class PipeAndFittings extends CI_Controller {
+	//creating construction 
     public function __construct()
     {
         parent::__construct();
         $this->load->helper(array('form', 'url'));
     }
 
+	//to load detail of PPR pipe and fittings.
 	public function PPR(){
 		$this->load->view('PPR.html');
 	}
 	
+	//to load details of CPVC pipe and fittings.
 	public function CPVC(){
 		$this->load->view('CPVC.html');
 	}
@@ -37,19 +40,27 @@ class PipeAndFittings extends CI_Controller {
 		$itemInsert=$this->pipeFittings->itemSave($image,$itemName,$size,$quantity,$buying,$selling);   //calling function
 		
 		if($itemInsert){
-			echo "value inserted";
-			redirect (base_url(). 'PipeAndFittings/index');
+			$this->session->set_flashdata('error','Items has been inserted.');
+			redirect(base_url(). 'owner/staffRegister');
 		}
 		else{
-			echo "not inserted";
-			redirect (base_url(). 'PipeAndFittings/index');
+			$this->session->set_flashdata('error','Sorry, try again.');
+			redirect(base_url(). 'owner/staffRegister');
 		}	
 	}
 
+	//for getting all the pipe and fittings
 	public function getItem(){
 		$this->load->model('pipeFittings');
 		$dataItem['items'] = $this->pipeFittings->itemDetail();
 		$this->load->view('editItem',$dataItem);
+	}
+	
+	//pipe and fittings for Customer
+	public function getItemforCustomer(){
+		$this->load->model('pipeFittings');
+		$dataItem['items'] = $this->pipeFittings->itemDetail();
+		$this->load->view('viewPipe&fittings',$dataItem);
 	}
 }
 ?>

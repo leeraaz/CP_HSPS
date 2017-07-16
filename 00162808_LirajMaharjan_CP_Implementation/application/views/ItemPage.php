@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> Supplier Form </title>
+	<title> Pipe and Fittings Form </title>
 	<link href="<?php echo base_url();?>assets/CSS/design.css" rel="stylesheet" content="text/css" />
 	<link href="<?php echo base_url();?>assets/CSS/bootstrap.min.css" rel="stylesheet" content="text/css" />
 <style>
@@ -13,9 +13,9 @@
 <body>
 <div id="header">
 	<center><img id="adminlogo" src="<?php echo base_url();?>assets/Images/owner.png" alt="adminlogo"><br>
-	this is admin panel.<br/>
+	Admin panel.<br/>
 	<?php
-	echo 'welcome -'.$this->session->userdata('USERNAME').' and you ID is.'.$this->session->userdata('STAFF_ID');
+	echo 'Welcome -'.$this->session->userdata('USERNAME').' and you ID is.'.$this->session->userdata('STAFF_ID');
 	?>
 	</center>
 </div>
@@ -24,8 +24,10 @@
 		<li> <a href="<?php echo base_url();?>Owner/supplier" >Add Supplier </a></li>
 		<li> <a href="<?php echo base_url();?>Owner/pipefitting" >Add Pipe and Fittings </a></li>
 		<li> <a href="<?php echo base_url();?>Owner/staffRegister" >Add Staff</a></li>
+		<li> <a href="<?php echo base_url();?>Owner/saleView" >View Sales</a></li>
 		<li> <a href="<?php echo base_url();?>Staff/getCustomer" >Edit Customer </a></li>
 		<li> <a href="<?php echo base_url();?>Supplier/getSupplier" >Update Supplier </a></li>
+		<li> <a href="<?php echo base_url();?>Owner/deleSupplier" >Delete Supplier </a></li>
 		<li> <a href="<?php echo base_url();?>PipeAndFittings/getItem" >Edit Pipe and Fittings </a></li>
 		<li> <a href="<?php echo base_url();?>Staff/getStaff" >Edit Staff</a></li>
 		<li> <a href="<?php echo base_url();?>Staff/logout" >Logout </a></li>
@@ -34,6 +36,7 @@
 <div id="data2">
 <div id="Form">
   <h2>Pipe and Fittings form</h2>
+  <?php echo $this->session->flashdata('error'); ?>
    <?php echo form_open_multipart('PipeAndFittings/do_upload');?>
   <form action="<?php echo base_url();?>PipeandFittings/do_upload" method="POST">
 	<div class="form-group">
@@ -75,6 +78,5 @@
   </form>
 </div>
 </div>
-
 </body>
 </html>

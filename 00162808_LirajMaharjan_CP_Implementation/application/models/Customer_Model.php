@@ -26,13 +26,15 @@
 				echo "Sorry try again.";
 			}
 		}
-
+		
+		//to get customer details for updating
 		public function customerDetails($cusID){
 			$this->db->where('CUSTOMER_ID',$cusID);
 			$sql=$this->db->get('customer');
 			return $sql->result();
 		}
 
+		//to update the customer details
 		public function customerList($cID,$cName,$cLName,$cAddress,$cGender,
 									 $cContact,$cEmail,$cUsername,$cPassword){
 			$customerArray=array(
@@ -51,6 +53,7 @@
 				return "Data has been updated";
 		}
 
+		//to delete the customer.
 		public function deleteCustomer($CUSTOMER_ID){
 			$this->db->where('CUSTOMER_ID',$CUSTOMER_ID);
 			$sql=$this->db->delete('customer');

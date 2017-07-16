@@ -123,6 +123,7 @@ input{
 	height:100%;
  	background:#2c3e50;
 	float:left;
+	margin-right
 }
 
 #sidebar ul li a{
@@ -149,13 +150,18 @@ input{
 
 #data{
 	background:#34495e;
-	height:200%;
+	height:1000px;
 }
 
 #data2{
 	background:#34495e;
 	height:1000px;
 }
+
+#orderdata{
+	background:#34495e;
+}
+
 
 .homepage{
 	width:100%;

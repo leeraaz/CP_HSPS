@@ -80,6 +80,14 @@ class Owner extends CI_Controller{
 		redirect ('Staff/getStaff');
 	}
 	
+	public function deleSupplier(){
+		$this->load->view('editSupplier.php');
+	}
 	
+	public function saleView(){
+		$this->load->model('OwnerModel');
+		$saleDetail['sale'] = $this->OwnerModel->displaySale();
+		$this->load->view('viewSale',$saleDetail);
+	}
 }
 ?>

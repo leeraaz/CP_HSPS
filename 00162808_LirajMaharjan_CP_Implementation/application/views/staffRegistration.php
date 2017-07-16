@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> Supplier Form </title>
+	<title> Staff Registration Form </title>
 	<link href="<?php echo base_url();?>assets/CSS/design.css" rel="stylesheet" content="text/css" />
 	<link href="<?php echo base_url();?>assets/CSS/bootstrap.min.css" rel="stylesheet" content="text/css" />
 <style>
@@ -13,9 +13,9 @@
 <body>
 <div id="header">
 	<center><img id="adminlogo" src="<?php echo base_url();?>assets/Images/owner.png" alt="adminlogo"><br>
-	This is admin panel.<br/>
+	Admin panel.<br/>
 	<?php
-	echo 'welcome -'.$this->session->userdata('USERNAME').' and you ID is.'.$this->session->userdata('STAFF_ID');
+	echo 'Welcome -'.$this->session->userdata('USERNAME').' and you ID is.'.$this->session->userdata('STAFF_ID');
 	?>
 	</center>
 </div>
@@ -24,8 +24,10 @@
 		<li> <a href="<?php echo base_url();?>Owner/supplier" >Add Supplier </a></li>
 		<li> <a href="<?php echo base_url();?>Owner/pipefitting" >Add Pipe and Fittings </a></li>
 		<li> <a href="<?php echo base_url();?>Owner/staffRegister" >Add Staff</a></li>
+		<li> <a href="<?php echo base_url();?>Owner/saleView" >View Sales</a></li>
 		<li> <a href="<?php echo base_url();?>Staff/getCustomer" >Edit Customer </a></li>
 		<li> <a href="<?php echo base_url();?>Supplier/getSupplier" >Update Supplier </a></li>
+		<li> <a href="<?php echo base_url();?>Owner/deleSupplier" >Delete Supplier </a></li>
 		<li> <a href="<?php echo base_url();?>PipeAndFittings/getItem" >Edit Pipe and Fittings </a></li>
 		<li> <a href="<?php echo base_url();?>Staff/getStaff" >Edit Staff</a></li>
 		<li> <a href="<?php echo base_url();?>Staff/logout" >Logout </a></li>
@@ -33,8 +35,11 @@
 </div>
 <div id="data2">
 <div id="staffForm">
+<font size="5px" color="white">
+<?php
+	echo  $this->session->flashdata("error");
+?>
 <form action="<?php echo base_url();?>Staff/saveData" method="POST" onsubmit="return staffValidate()" name="sForm">
-	<font size="5px" color="white">
 		<center><font size="6px"><b> Staff Registration </b></font></center>
 		<div class="form-group">
 		<label for="FirstName">First Name:</label>

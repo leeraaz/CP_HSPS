@@ -7,12 +7,12 @@
 <body>
 <div id="header">
 	<center><img id="adminlogo" src="<?php echo base_url();?>assets/Images/customer.png" alt="adminlogo"><br>
-	Customer PANEL.
+	Customer Panel.
 	</center>
 </div>
 <div id="sidebar">
 	<ul>
-		<li><a href="<?php echo base_url();?>customer/viewItems"> View items </a> </li>
+		<li><a href="<?php echo base_url();?>PipeAndFittings/getItemforCustomer"> View items </a> </li>
 		<li><a href="<?php echo base_url();?>Order/orderPage"> Place Order </a></li>
 		<li><a href="<?php echo base_url();?>customer/detailCustomer"> Update profile </a> </li>
 		<li><a href="<?php echo base_url();?>customer/cusLogout"> Logout </a></li>

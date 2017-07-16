@@ -7,12 +7,15 @@
 <body>
 <div id="header">
 	<center><img id="adminlogo" src="<?php echo base_url();?>assets/Images/customer.png" alt="adminlogo"><br>
-	Customer PANEL.
+	Customer PANEL.</br>
+	<?php
+		echo 'Welcome - '.$this->session->userdata('USERNAME').' and your customer ID is.'.$this->session->userdata('CUSTOMER_ID');
+	?>
 	</center>
 </div>
 <div id="sidebar">
 	<ul>
-		<li><a href="<?php echo base_url();?>customer/viewItems"> View items </a> </li>
+		<li><a href="<?php echo base_url();?>PipeAndFittings/getItemforCustomer"> View items </a> </li>
 		<li><a href="<?php echo base_url();?>Order/orderPage"> Place Order </a></li>
 		<li><a href="<?php echo base_url();?>customer/detailCustomer"> Update profile </a> </li>
 		<li><a href="<?php echo base_url();?>customer/cusLogout"> Logout </a></li>
@@ -20,41 +23,57 @@
 </div>
 <div id="orderdata">
 <font color="white" align="center">
-
-<ul >
+<table border="2px">
+	<tr>
+		<th>Image</th>
+		<th>Item Name</th>
+		<th>Price</th>
+		<th>Size</th>
+		<th>Quantity</th>
+		<th> Click to Order </th>
+	</tr>
+	<tr>
 		<?php foreach ($products as $product){?>
-		<li>
 			<?php echo form_open('Order/addtoOrder');?>
+			<td>
 			<div class="image">
 			<img src='<?php echo base_url();?>assets/Images/<?php echo $product->IMAGE;?>' width="212px" >
 			</div>
+			</td>
+			<td>
 			<div class="name">
-			<label>Item Name</label>
-			<input type="text" value="<?php echo $product->ITEM_NAME;?>" name="itemName">
+			<input type="text" value="<?php echo $product->ITEM_NAME;?>" name="itemName" readonly>
 			</div>
+			</td>
+			<td>
 			<div class="price">
-			<label>Price</label>
-			<input type="text" value="<?php echo $product->SELLING_PRICE;?>" name="price">
+			<input type="text" value="<?php echo $product->SELLING_PRICE;?>" name="price" readonly>
 			</div>
+			</td>
+			<td>
 			<div class="size">
-			<label>Size</label>
-			<input type="text" value="<?php echo $product->SIZE_in_INCH;?>" name="size">
+			<input type="text" value="<?php echo $product->SIZE_in_INCH;?>" name="size" readonly>
 			</div>
+			</td>
+			<td>
 			<div class="qty">
-			<label>Quantity</label><input type="text" name="qty">
+			<input type="text" name="qty">
 			</div>
+			</td>
 			<?php 
 				echo form_hidden('id',$product->PFID);
 			?>
+			<td><center>
 				<?php 
-					echo form_submit('action','Add to CART');
+					echo form_submit('action','Order',['class'=>"btn btn-danger"]);
 				?>
+			</center></td>
 				<?php 
 					echo form_close();
 				?>
-		</li>
+		</tr>
 		<?php }?>
-	</ul>
+</table>
 </font>
 </div>
 </body>

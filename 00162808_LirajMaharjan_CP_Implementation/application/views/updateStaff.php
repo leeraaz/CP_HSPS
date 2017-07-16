@@ -13,25 +13,29 @@
 </head>
 <body>
 <div id="header">
-	<center><img id="adminlogo" src="<?php echo base_url();?>assets/Images/owner.png" alt="adminlogo"><br>
-	this is Staff panel.
+	<center><img id="adminlogo" src="<?php echo base_url();?>assets/Images/staff.png" alt="adminlogo"><br>
+	Staff panel.<br/>
+	<?php
+	echo 'Welcome -'.$this->session->userdata('USERNAME').' and you ID is.'.$this->session->userdata('STAFF_ID');
+	?>
 	</center>
 </div>
 <div id="sidebar">
 	<ul>
-		<li> <a href="<?php echo base_url();?>staff/updateStaff" >Update Profile </a></li>
-		<li> <a href="<?php echo base_url();?>staff/sale" >View Order</a> </li>
-		<li> <a href="<?php echo base_url();?>staff/prepareBIll" >Prepare bill</a> </li>
+		<li> <a href="<?php echo base_url();?>Staff/viewStaffUpdate" >Update Profile </a></li>
+		<li> <a href="<?php echo base_url();?>Staff/orderView" >View Order</a> </li>
+		<li> <a href="<?php echo base_url();?>Staff/customerName" >Prepare bill</a> </li>
 		<li> <a href="<?php echo base_url();?>Staff/logout" >Logout </a></li>
 	</ul>
 </div>
 <div id="data">
 <div id="staffForm">
-<?php 
+<font size="5px" color="white">
+<?php
+	echo  $this->session->flashdata("error");
 	foreach($staff as $row){
 ?>
 <form action="<?php echo base_url();?>Staff/updateStaff" method="POST" onsubmit="return sValidate()" name="sForm">
-	<font size="5px" color="white">
 		<font size="6px"><b> Update Staff </b></font></br>
 		<?php echo "Your Staff ID is <strong>" . $row->STAFF_ID . "</strong>"?>
 		<div class="form-group">

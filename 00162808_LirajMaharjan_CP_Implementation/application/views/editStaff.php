@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Owner Panel</title>
+	<title>Edit Staff</title>
 	<link content="text/css" href="<?php echo base_url();?>assets/CSS/design.css" rel="stylesheet" /> 
 </head>
 <body>
 <div id="header">
 	<center><img id="adminlogo" src="<?php echo base_url();?>assets/Images/owner.png" alt="adminlogo"><br>
-	this is admin panel.
+	Owner panel.<br/>
+	<?php
+	echo 'Welcome -'.$this->session->userdata('USERNAME').' and you ID is.'.$this->session->userdata('STAFF_ID');
+	?>
 	</center>
 </div>
 <div id="sidebar">
@@ -15,8 +18,10 @@
 		<li> <a href="<?php echo base_url();?>Owner/supplier" >Add Supplier </a></li>
 		<li> <a href="<?php echo base_url();?>Owner/pipefitting" >Add Pipe and Fittings </a></li>
 		<li> <a href="<?php echo base_url();?>Owner/staffRegister" >Add Staff</a></li>
+		<li> <a href="<?php echo base_url();?>Owner/saleView" >View Sales</a></li>
 		<li> <a href="<?php echo base_url();?>Staff/getCustomer" >Edit Customer </a></li>
 		<li> <a href="<?php echo base_url();?>Supplier/getSupplier" >Update Supplier </a></li>
+		<li> <a href="<?php echo base_url();?>Owner/deleSupplier" >Delete Supplier </a></li>
 		<li> <a href="<?php echo base_url();?>PipeAndFittings/getItem" >Edit Pipe and Fittings </a></li>
 		<li> <a href="<?php echo base_url();?>Staff/getStaff" >Edit Staff</a></li>
 		<li> <a href="<?php echo base_url();?>Staff/logout" >Logout </a></li>

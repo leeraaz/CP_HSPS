@@ -100,8 +100,9 @@ li.dropdown {
 </div>
 <hr/>
 <div id="Form">
+<font size="5px" color="white">
+<?php echo $this->session->flashdata('error'); ?>
 <form action="<?php echo base_url();?>Customer/saveCusData" method="POST" onsubmit="return validate()" name="form">
-	<font size="5px" color="white">
 		<center><font size="6px"><b> Customer Registration </b></font></center>
 		<div class="form-group">
 		<label for="FirstName">First Name:</label>

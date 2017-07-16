@@ -8,14 +8,14 @@
 <div id="header">
 	<center>
 	<img id="adminlogo" src="<?php echo base_url();?>assets/Images/staff.png" alt="adminlogo"></br>
-	STAFF PANNEL
+	Staff panel
 	</center>
 </div>
 <div id="sidebar">
 	<ul>
 		<li> <a href="<?php echo base_url();?>Staff/viewStaffUpdate" >Update Profile </a></li>
-		<li> <a href="<?php echo base_url();?>staff/sale" >View Order</a> </li>
-		<li> <a href="<?php echo base_url();?>staff/prepareBIll" >Prepare bill</a> </li>
+		<li> <a href="<?php echo base_url();?>Staff/orderView" >View Order</a> </li>
+		<li> <a href="<?php echo base_url();?>Staff/customerName" >Prepare bill</a> </li>
 		<li> <a href="<?php echo base_url();?>Staff/logout" >Logout </a></li>
 	</ul>
 </div>

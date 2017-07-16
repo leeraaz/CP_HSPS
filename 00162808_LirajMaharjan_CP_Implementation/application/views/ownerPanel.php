@@ -7,7 +7,7 @@
 <body>
 <div id="header">
 	<center><img id="adminlogo" src="<?php echo base_url();?>assets/Images/owner.png" alt="adminlogo"><br>
-	this is admin panel.
+	This is Owner panel.
 	</center>
 </div>
 <div id="sidebar">
@@ -15,9 +15,10 @@
 		<li> <a href="<?php echo base_url();?>Owner/supplier" >Add Supplier </a></li>
 		<li> <a href="<?php echo base_url();?>Owner/pipefitting" >Add Pipe and Fittings </a></li>
 		<li> <a href="<?php echo base_url();?>Owner/staffRegister" >Add Staff</a></li>
+		<li> <a href="<?php echo base_url();?>Owner/saleView" >View Sales</a></li>
 		<li> <a href="<?php echo base_url();?>Staff/getCustomer" >Edit Customer </a></li>
 		<li> <a href="<?php echo base_url();?>Supplier/getSupplier" >Update Supplier </a></li>
-		<li> <a href="<?php echo base_url();?>" >Delete Supplier </a></li>
+		<li> <a href="<?php echo base_url();?>Owner/deleSupplier" >Delete Supplier </a></li>
 		<li> <a href="<?php echo base_url();?>PipeAndFittings/getItem" >Edit Pipe and Fittings </a></li>
 		<li> <a href="<?php echo base_url();?>Staff/getStaff" >Edit Staff</a></li>
 		<li> <a href="<?php echo base_url();?>Staff/logout" >Logout </a></li>
@@ -28,7 +29,7 @@
 <marquee>
 <font size="18px" color="white">
 <?php
-	echo 'welcome - '.$this->session->userdata('USERNAME').' and your staff ID is.'.$this->session->userdata('STAFF_ID');
+	echo 'Welcome - '.$this->session->userdata('USERNAME').' and your staff ID is.'.$this->session->userdata('STAFF_ID');
 ?>
 </font>
 </marquee>
